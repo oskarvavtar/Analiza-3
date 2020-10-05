@@ -1,0 +1,57 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[slovene]{babel}
+
+\usepackage{amsthm}
+\usepackage{amsmath, amssymb, amsfonts}
+
+\theoremstyle{definition}
+\newtheorem{definicija}{Definicija}[section]
+
+\newtheorem{lema}{Lema}
+\newtheorem{trditev}{Trditev}
+\newtheorem{izrek}{Izrek}
+\newtheorem*{dokaz}{Dokaz}
+
+\title{Analiza 3 - definicije, trditve in izreki}
+\author{Oskar Vavtar}
+\date{2020/21}
+
+\begin{document}
+\maketitle
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\section{PARAMETRIČNO PODANE KRIVULJE}
+
+\vspace{0.5cm}	
+
+\begin{trditev}
+
+Če je $\vec{r}$ \textit{odvedljiva} vektorska funkcija (njene komponente $x$, $y$ in $z$ so odvedljive funkcije spremenljivke $t$), potem je
+$$\dot{\vec{r}}(t_0) = (\dot{x}(t_0), \dot{y}(t_0), \dot{z}(t_0))$$
+\textit{tangentni vektor} na krivuljo $t \mapsto \vec{r}(t)$ v točki $\vec{r}(t_0)$, če velja $\dot{\vec{r}}(t_0) \neq 0$.
+	
+\end{trditev}
+
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Če je $\vec{r}$ \textit{zvezno odvedljiva} vektorska funkcija na intervalu $[a, b]$ (za	$a < b$), je potem \textit{dolžina} krivulje, ki jo določa, enaka
+$$s = \int_{a}^{b} \| \dot{\vec{r}}(t) \| dt.$$
+To velja tudi za funkcijo, ki so le \textit{odsekoma zvezne}. Opazimo tudi, da je zgornja dolžina neodvisna od parametrizacije krivulje.	
+
+\end{trditev}
+
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Naj bo $\vec{r}$ \textit{zvezno odvedljiva} vektorska funkcija, definirana na intervalu $[a, b]$ (za $a < b$) in naj bo $\psi: [a, b] \rightarrow [\alpha, \beta]$ \textit{zvezno odvedljiva bijekcija}, tako da $t = \psi(\tau)$ preteče interval $[a, b]$, ko $\tau$ preteče interval $[\alpha, \beta]$ (za $\alpha < \beta)$. Potem je
+$$\int_{a}^{b} \| \dot{\vec{r}}(t) \| dt = \int_{\alpha}^{\beta} \| \frac{d}{d \tau} \vec{r}(\psi(\tau)) \| d\tau. $$
+
+\end{trditev}
+
+\end{document}
