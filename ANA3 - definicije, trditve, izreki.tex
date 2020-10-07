@@ -8,8 +8,10 @@
 \theoremstyle{definition}
 \newtheorem{definicija}{Definicija}[section]
 
+\theoremstyle{corollary}
+\newtheorem{trditev}{Trditev}[section]
+
 \newtheorem{lema}{Lema}
-\newtheorem{trditev}{Trditev}
 \newtheorem{izrek}{Izrek}
 \newtheorem*{dokaz}{Dokaz}
 
@@ -53,5 +55,57 @@ Naj bo $\vec{r}$ \textit{zvezno odvedljiva} vektorska funkcija, definirana na in
 $$\int_{a}^{b} \| \dot{\vec{r}}(t) \| dt = \int_{\alpha}^{\beta} \| \frac{d}{d \tau} \vec{r}(\psi(\tau)) \| d\tau. $$
 
 \end{trditev}
+
+% *************************************************************************************************
+
+\pagebreak
+
+% #################################################################################################
+
+\section{PLOSKVE}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Ploskve v $\mathbb{R}^3$}
+\vspace{0.5cm}
+
+\begin{definicija}[Ploskev]
+
+Podmnožica $P \subseteq \mathbb{R}^3$ je \textit{ploskev}, če za $\forall$ točko $\vec{r} \in P$ $\exists$ taka okolica $H \subseteq \mathbb{R}^3$, da je $P \cap H$ graf kake zvezno odvedljive funkcije $\phi: D \rightarrow \mathbb{R}$, definirane na kaki \textit{odprti} podmnožici $D \subseteq \mathbb{R}^2$. \\
+To pomeni, da se na $P \cap H$ ena od koordinat $x, y, z$ da \textit{enolično} izraziti kot funkcija preostalih, torej da je $P \cap H$ ene od oblik:
+$$P \cap H = \{(x, y, \phi(x, y)) \mid (x, y) \in D\},$$
+$$P \cap H = \{(x, \phi(x, z), y) \mid (x, z) \in D\},$$
+$$P \cap H = \{(\phi(y, z), y, z) \mid (y, z) \in D\}.$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}[Izrek o implicitni funkciji]
+
+Naj bo $g: \mathbb{R}^3 \rightarrow \mathbb{R}$ \textit{zvezno odvedljiva} funkcija in privzemimo, da je množica $P = g^{-1}(0)$ \textit{neprazna}. Če je
+$$\nabla g(\vec{r}) \neq 0$$
+za $\forall \vec{r} \in P$ je $P$ \textit{ploskev}. \\
+
+Enačba oblike $\vec{r} = \vec{r}(t)$ ($t \in [a, b] \subseteq \mathbb{R}, ~a < b$) predstavlja krivuljo v $\mathbb{R}^3$. Privzeli bomo, da je pri tem $\vec{r}$ \textit{zvezno odvedljiva} funkcija spremenljivke $t$. Taka krivulja leži na ploskvi $P = g^{-1}(0)$ natanko tedaj, ko je $g(\vec{r}(t)) = 0$ za $\forall t \in [a, b]$. Ko to enakost odvajamo po $t$, dobimo
+$$\nabla g(\vec{r}(t)) \cdot \dot{\vec{r}}(t) = 0.$$
+Ta enakost pomeni, da je vektor $\nabla g(\vec{r}(t))$ pravokoten na tangentni vektor $\dot{\vec{r}}(t)$ krivulje v točki $\vec{r}(t)$. \\
+
+Če sedaj izberemo poljubno točko $\vec{r}_0$ na ploskvi $P$ in opazujemo vse krivulje na ploskvi $P$, ki gredo skozi točko $\vec{r}_0$ (vsaka taka krivulja $\vec{r} = \vec{r}(t)$ zadošča pogoju $\vec{r}(t_0) = \vec{r}_0$ za kak $t_0$), vidimo, da je vektor $\nabla g(\vec{r}_0)$ pravokoten na tangentni vektor $\dot{\vec{r}}(t_0)$ vsake take krivulje. \\
+
+To pomeni, da mora biti vektor $\nabla g(\vec{r}_0)$ pravokoten na ploskev $P$. To velja za $\forall$ točko $\vec{r}_0 \in P$.
+ 
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{definicija}[Normalni vektor]
+
+Vektor $\nabla g(\vec{r})$ imenujemo \textit{normalni vektor} na ploskev $P = g^{-1}(0)$ v točki $\vec{r} \in P$. Ravnino $T_{\vec{r}}P$ z normalnim vektorjem $\nabla g(\vec{r})$ skozi točko $\vec{r}$ na ploskvi $P$ pa imenujemo \textit{tangentna ravnina} na ploskev $P$ v točki $\vec{r}$. \\
+
+Tangentna ravnina na $P$ skozi točko $\vec{r}$ je torej vzporedna vsem tangentnim vektorjem v točki $\vec{r}$ na krivulje skozi $\vec{r}$ na ploskvi $P$.
+
+\end{definicija}
+\vspace{0.5cm}
 
 \end{document}
