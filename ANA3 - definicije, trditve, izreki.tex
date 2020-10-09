@@ -11,8 +11,10 @@
 \theoremstyle{corollary}
 \newtheorem{trditev}{Trditev}[section]
 
+\theoremstyle{theorem}
+\newtheorem{izrek}{Izrek}[section]
+
 \newtheorem{lema}{Lema}
-\newtheorem{izrek}{Izrek}
 \newtheorem*{dokaz}{Dokaz}
 
 \title{Analiza 3 - definicije, trditve in izreki}
@@ -106,6 +108,47 @@ Vektor $\nabla g(\vec{r})$ imenujemo \textit{normalni vektor} na ploskev $P = g^
 Tangentna ravnina na $P$ skozi točko $\vec{r}$ je torej vzporedna vsem tangentnim vektorjem v točki $\vec{r}$ na krivulje skozi $\vec{r}$ na ploskvi $P$.
 
 \end{definicija}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\pagebreak
+
+% #################################################################################################
+
+\section{INTEGRALI S PARAMETROM}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\begin{definicija}[Integral s parametrom]
+
+Naj bo $f$ \textit{zvezna funkcija} dveh spremenljivk, definirana na pravokotniku $P = [a, b] \times [c, d]$ ($a < b$, $c < d$). Integral
+\begin{equation}
+\label{eq:1}
+	F(y) = \int_{a}^{b} f(x, y) dx
+\end{equation}
+
+je funkcija spremenljivke $y$. Tak integral imenujemo \textit{integral s parametrom} $y$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Če je $f$ \textit{zvezna funkcija} na pravokotniku $P = [a, b] \times [c, d]$, je funkcija $F$ (definirana z (\ref{eq:1})) \textit{zvezna} na intervalu $P$.
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+Naj bo $f$ \textit{zvezna} na pravokotniku $P = [a, b] \times [c, d]$ in privzemimo, da $\exists$ parcialni odvod $\frac{\partial f}{\partial y}$, ki naj bo \textit{zvezen} na $P$. Potem je funkcija $F$ (podana z (\ref{eq:1})) \textit{odvedljiva} in velja 
+\begin{equation}
+	F'(y) = \frac{d}{dy} \int_{a}^{b} f(x, y) dx = \int_{a}^{b} \frac{\partial f}{\partial y} (x, y) dx.
+\end{equation}
+
+\end{izrek}
 \vspace{0.5cm}
 
 \end{document}
