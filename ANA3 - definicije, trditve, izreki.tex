@@ -8,13 +8,14 @@
 \theoremstyle{definition}
 \newtheorem{definicija}{Definicija}[section]
 
-\theoremstyle{corollary}
+\theoremstyle{definition}
 \newtheorem{trditev}{Trditev}[section]
 
-\theoremstyle{theorem}
+\theoremstyle{definition}
 \newtheorem{izrek}{Izrek}[section]
 
-\newtheorem{lema}{Lema}
+\newtheorem{lema}{Lema}[section]
+
 \newtheorem*{dokaz}{Dokaz}
 
 \title{Analiza 3 - definicije, trditve in izreki}
@@ -28,7 +29,6 @@
 \pagebreak
 
 \section{PARAMETRIČNO PODANE KRIVULJE}
-
 \vspace{0.5cm}	
 
 \begin{trditev}
@@ -38,7 +38,6 @@ $$\dot{\vec{r}}(t_0) = (\dot{x}(t_0), \dot{y}(t_0), \dot{z}(t_0))$$
 \textit{tangentni vektor} na krivuljo $t \mapsto \vec{r}(t)$ v točki $\vec{r}(t_0)$, če velja $\dot{\vec{r}}(t_0) \neq 0$.
 	
 \end{trditev}
-
 \vspace{0.5cm}
 
 \begin{trditev}
@@ -48,7 +47,6 @@ $$s = \int_{a}^{b} \| \dot{\vec{r}}(t) \| dt.$$
 To velja tudi za funkcijo, ki so le \textit{odsekoma zvezne}. Opazimo tudi, da je zgornja dolžina neodvisna od parametrizacije krivulje.	
 
 \end{trditev}
-
 \vspace{0.5cm}
 
 \begin{trditev}
@@ -57,6 +55,7 @@ Naj bo $\vec{r}$ \textit{zvezno odvedljiva} vektorska funkcija, definirana na in
 $$\int_{a}^{b} \| \dot{\vec{r}}(t) \| dt = \int_{\alpha}^{\beta} \| \frac{d}{d \tau} \vec{r}(\psi(\tau)) \| d\tau. $$
 
 \end{trditev}
+\vspace{0.5cm}
 
 % *************************************************************************************************
 
@@ -74,7 +73,7 @@ $$\int_{a}^{b} \| \dot{\vec{r}}(t) \| dt = \int_{\alpha}^{\beta} \| \frac{d}{d \
 
 \begin{definicija}[Ploskev]
 
-Podmnožica $P \subseteq \mathbb{R}^3$ je \textit{ploskev}, če za $\forall$ točko $\vec{r} \in P$ $\exists$ taka okolica $H \subseteq \mathbb{R}^3$, da je $P \cap H$ graf kake zvezno odvedljive funkcije $\phi: D \rightarrow \mathbb{R}$, definirane na kaki \textit{odprti} podmnožici $D \subseteq \mathbb{R}^2$. \\
+Podmnožica $P \subseteq \mathbb{R}^3$ je \textit{ploskev}, če za vsako točko $\vec{r} \in P$ obstaja taka okolica $H \subseteq \mathbb{R}^3$, da je $P \cap H$ graf kake zvezno odvedljive funkcije $\phi: D \rightarrow \mathbb{R}$, definirane na kaki \textit{odprti} podmnožici $D \subseteq \mathbb{R}^2$. \\
 To pomeni, da se na $P \cap H$ ena od koordinat $x, y, z$ da \textit{enolično} izraziti kot funkcija preostalih, torej da je $P \cap H$ ene od oblik:
 $$P \cap H = \{(x, y, \phi(x, y)) \mid (x, y) \in D\},$$
 $$P \cap H = \{(x, \phi(x, z), y) \mid (x, z) \in D\},$$
@@ -95,7 +94,7 @@ Ta enakost pomeni, da je vektor $\nabla g(\vec{r}(t))$ pravokoten na tangentni v
 
 Če sedaj izberemo poljubno točko $\vec{r}_0$ na ploskvi $P$ in opazujemo vse krivulje na ploskvi $P$, ki gredo skozi točko $\vec{r}_0$ (vsaka taka krivulja $\vec{r} = \vec{r}(t)$ zadošča pogoju $\vec{r}(t_0) = \vec{r}_0$ za kak $t_0$), vidimo, da je vektor $\nabla g(\vec{r}_0)$ pravokoten na tangentni vektor $\dot{\vec{r}}(t_0)$ vsake take krivulje. \\
 
-To pomeni, da mora biti vektor $\nabla g(\vec{r}_0)$ pravokoten na ploskev $P$. To velja za $\forall$ točko $\vec{r}_0 \in P$.
+To pomeni, da mora biti vektor $\nabla g(\vec{r}_0)$ pravokoten na ploskev $P$. To velja za vsako točko $\vec{r}_0 \in P$.
  
 
 \end{trditev}
@@ -143,10 +142,92 @@ je funkcija spremenljivke $y$. Tak integral imenujemo \textit{integral s paramet
 
 \begin{izrek}
 
-Naj bo $f$ \textit{zvezna} na pravokotniku $P = [a, b] \times [c, d]$ in privzemimo, da $\exists$ parcialni odvod $\frac{\partial f}{\partial y}$, ki naj bo \textit{zvezen} na $P$. Potem je funkcija $F$ (podana z (\ref{eq:1})) \textit{odvedljiva} in velja 
+Naj bo $f$ \textit{zvezna} na pravokotniku $P = [a, b] \times [c, d]$ in privzemimo, da obstaja parcialni odvod $\frac{\partial f}{\partial y}$, ki naj bo \textit{zvezen} na $P$. Potem je funkcija $F$ (podana z (\ref{eq:1})) \textit{odvedljiva} in velja 
 \begin{equation}
 	F'(y) = \frac{d}{dy} \int_{a}^{b} f(x, y) dx = \int_{a}^{b} \frac{\partial f}{\partial y} (x, y) dx.
 \end{equation}
+
+\end{izrek}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Izlimitirani integrali s parametrom}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Integral $F(y) = \int_{a}^{\infty} f(x, y) dx$ je \textit{enakomerno konvergenten} za $y \in S \subseteq \mathbb{R}$, če za $\forall \varepsilon > 0 ~\exists M \in \mathbb{R}$, da za $\forall b \geq M$ in $\forall y \in S$ velja
+$$\left| \int_{b}^{\infty} f(x, y) dx \right| < \varepsilon.$$ 
+
+Za razliko od navadne konvergence mora tukaj obstajati tak $M$, ki je istočasno ustrezen za $\forall y \in S$, torej je $M = M_{\varepsilon}$ odvisen le od $\varepsilon$, ne pa tudi od $y$. Pri navadni konvergenci bi bil veljalo $M = M_{\varepsilon,y}$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Če je $f$ \textit{zvezna} funkcija na pasu $P = [a, \infty) \times [c, d]$ in integral
+$$F(y) = \int_{a}^{\infty} f(x, y) dx$$
+\textit{enakomerno konvergenten} za $y \in [c, d]$, je $F$ \textit{zvezna funkcija} na $[c, d]$.
+
+\end{trditev}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Dvojni in dvakratni integrali}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Naj bo $P = [a, b] \times [c, d]$ in $f: P \rightarrow \mathbb{R}$ funkcija. Delitev $D_{[a, b]}$ intervala $[a, b]$ je določena z zaporedjem točk
+$$a = x_0 < x_1 < \ldots < x_m = b.$$
+Delitev $D_{[a, b]}$ skupaj s poljubno delitvijo $D_{[c, d]}$ intervala $[c, d]$, določeno z 
+$$c = y_0 < y_1 < \ldots < y_n = d,$$
+določa neko delitev pravokotnika $P$ na manjpe pravokotnike
+$$P_{i,j} = [x_{i-1}, x_i] \times [y_{i-1}, y_i], ~(i = 1, \ldots, m; ~j = 1, \ldots, n).$$
+
+Naj bo 
+$$m_{i,j} = \inf_{(x,y) \in P_{i,j}} f(x, y),$$
+$$M_{i,j} = \sup_{(x,y) \in P_{i,j}} f(x, y).$$
+Z $\Delta_{i,j} p = \Delta_i x \cdot \Delta_j y = (x_i - x_{i-1})(y_j - y_{j-1})$ označimo ploščino pravokotnika $P_{i,j}$. 
+Vsoto
+$$\underline{S}_D = \sum_{i=1}^{m} \sum_{j=1}^{n} m_{i,j} \Delta_{i,j} p$$
+imenujemo \textit{spodnja}, vsoto
+$$\overline{S}_D = \sum_{i=1}^{m} \sum_{j=1}^{n} M_{i,j} \Delta_{i,j} p$$
+pa \textit{zgornja Riemannova vsota} funkcije $f$ pri delitvi $D$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{lema}
+
+Če je $N$ nadaljevanje delitve $D$ pravokotnika $P$, za spodnje in zgornje Riemannove vsote poljubne omejene funkcije $f: P \rightarrow \mathbb{R}$ velja
+$$\underline{S}_N \geq \underline{S}_D ~\text{in}~ \overline{S}_N \leq \overline{S}_D.$$
+
+\end{lema}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Omejena funkcija $f: P \rightarrow \mathbb{R}$ je na pravokotniku $P$ \textit{integrabilna v Riemannovem smislu}, če velja
+$$\underline{S} = \overline{S},$$
+kjer je $\underline{S}$ supermum njenih \textit{spodnjih}, $\overline{S}$ pa infimum njenih \textit{zgornjih} Riemannovih vsot. Tedaj skupno vrednost $\underline{S} = \overline{S}$ označimo kot 
+$$\iint_P f(x, y) dp,$$
+kjer pomeni $dp = dxdy$ \textit{ploščinski element}, in jo imenujemo \textit{dvojni integral funkcije $f$ po pravokotniku $P$}.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+\textit{Zvezna funkcija} $f$ na pravokotniku $P = [a, b] \times [c, d]$ je \textit{integrabilna} in velja
+\begin{equation}
+\int_{a}^{b} \left( \int_{c}^{d} f(x, y) dy \right) dx = \iint_P f(x, y) dp = \int_{c}^{d} \left( \int_{a}^{b} f(x, y) dx \right) dy.
+\end{equation}
+
+Enak zaključek velja tudi za funkcijo $f$, ki ni nujno zvezna, če je $N$ množica njenih točk nezveznosti taka, da jo za $\forall \varepsilon > 0$ lahko pokrijemo s kakim zaporedjem pravokotnikov, katerih vsota ploščin je pod $\varepsilon$. Tedaj pravimo, da ima $N$ mero $0$.
 
 \end{izrek}
 \vspace{0.5cm}
