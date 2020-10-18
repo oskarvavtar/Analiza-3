@@ -4,6 +4,7 @@
 
 \usepackage{amsthm}
 \usepackage{amsmath, amssymb, amsfonts}
+\usepackage{relsize}
 
 \theoremstyle{definition}
 \newtheorem{definicija}{Definicija}[section]
@@ -17,6 +18,7 @@
 \newtheorem{lema}{Lema}[section]
 
 \newtheorem*{dokaz}{Dokaz}
+\newtheorem*{posledica}{Posledica}
 
 \title{Analiza 3 - definicije, trditve in izreki}
 \author{Oskar Vavtar}
@@ -142,7 +144,7 @@ je funkcija spremenljivke $y$. Tak integral imenujemo \textit{integral s paramet
 
 \begin{izrek}
 
-Naj bo $f$ \textit{zvezna} na pravokotniku $P = [a, b] \times [c, d]$ in privzemimo, da obstaja parcialni odvod $\frac{\partial f}{\partial y}$, ki naj bo \textit{zvezen} na $P$. Potem je funkcija $F$ (podana z (\ref{eq:1})) \textit{odvedljiva} in velja 
+Naj bo $f$ \textit{zvezna} na pravokotniku $P = [a, b] \times [c, d]$ in privzemimo, da obstaja parcialni odvod $\cfrac{\partial f}{\partial y}$, ki naj bo \textit{zvezen} na $P$. Potem je funkcija $F$ (podana z (\ref{eq:1})) \textit{odvedljiva} in velja 
 \begin{equation}
 	F'(y) = \frac{d}{dy} \int_{a}^{b} f(x, y) dx = \int_{a}^{b} \frac{\partial f}{\partial y} (x, y) dx.
 \end{equation}
@@ -157,7 +159,7 @@ Naj bo $f$ \textit{zvezna} na pravokotniku $P = [a, b] \times [c, d]$ in privzem
 
 \begin{definicija}
 
-Integral $F(y) = \int_{a}^{\infty} f(x, y) dx$ je \textit{enakomerno konvergenten} za $y \in S \subseteq \mathbb{R}$, če za $\forall \varepsilon > 0 ~\exists M \in \mathbb{R}$, da za $\forall b \geq M$ in $\forall y \in S$ velja
+Integral $F(y) = \mathlarger{\int_{a}^{\infty} f(x, y) dx}$ je \textit{enakomerno konvergenten} za $y \in S \subseteq \mathbb{R}$, če za $\forall \varepsilon > 0 ~\exists M \in \mathbb{R}$, da za $\forall b \geq M$ in $\forall y \in S$ velja
 $$\left| \int_{b}^{\infty} f(x, y) dx \right| < \varepsilon.$$ 
 
 Za razliko od navadne konvergence mora tukaj obstajati tak $M$, ki je istočasno ustrezen za $\forall y \in S$, torej je $M = M_{\varepsilon}$ odvisen le od $\varepsilon$, ne pa tudi od $y$. Pri navadni konvergenci bi bil veljalo $M = M_{\varepsilon,y}$.
@@ -228,6 +230,65 @@ kjer pomeni $dp = dxdy$ \textit{ploščinski element}, in jo imenujemo \textit{d
 \end{equation}
 
 Enak zaključek velja tudi za funkcijo $f$, ki ni nujno zvezna, če je $N$ množica njenih točk nezveznosti taka, da jo za $\forall \varepsilon > 0$ lahko pokrijemo s kakim zaporedjem pravokotnikov, katerih vsota ploščin je pod $\varepsilon$. Tedaj pravimo, da ima $N$ mero $0$.
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{posledica}
+
+Za funkcijo $f$, ki je na pravokotniku $P$ \textit{integrabilna} v Riemannovem smislu, konvergirajo Riemannove vsote $S$ proti $\mathlarger{\iint_P f(x, y) dp}$, ko gredo velikosti delilnih pravokotnikov (njihove diagonale) proti $0$. \\
+
+Natančneje: za $\forall \varepsilon > 0 ~\exists \delta > 0$, da je 
+$$\left| S - \iint_P f(x, y) dp \right| < \varepsilon$$
+za vsako Riemannovo vsoto funkcije $f$ pri vsaki delitvi pravokotnika $P$, kjer si dolžine diagonal pod $\delta$.
+
+\end{posledica}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Integriranje in odvajanje integralov s parametrom}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+Naj bo $f$ \textit{zvezna} na pasu $[a, \infty) \times [c, d]$. Če je integral $\mathlarger{\int_a^{\infty} f(x, y) dx}$ \textit{enakomerno konvergenten} za $y \in [c, d]$, potem je
+$$\int_c^d \int_a^{\infty} f(x, y) dx ~dy = \int_a^{\infty} \int_c^d f(x, y) dy ~dx.$$
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+Naj bosta $f$ in $\cfrac{\partial f}{\partial y}$ \textit{zvezni} na pasu $[a, \infty) \times [c, d]$, naj bo integral
+$$F(y) = \int_a^{\infty} f(x, y) dx$$
+\textit{konvergenten} za $y \in [c, d]$ in naj bo integral
+$$\int_a^{\infty} \frac{\partial f}{\partial y}(x, y) dx$$
+\textit{enakomerno konvergenten} na $[c, d]$. Potem je $F$ \textit{odvedljiva} funkcija in velja
+$$F'(y) = \frac{d}{dy} \int_a^{\infty} f(x, y) dx = \int_a^{\infty} \frac{\partial f}{\partial y}(x, y) dx.$$
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{izrek}[Kriterij za ugotavljanje enakomerne konvergence]
+~ \\
+Integral $\mathlarger{\int_a^{\infty} f(x, y) dx} = F(y)$ je \textit{enakomerno konvergenten} na $S$ natanko tedaj, ko za $\forall \varepsilon > 0 ~\exists N \in \mathbb{R}$, da za poljubna $d > b \geq N$ in za $\forall y \in S$ velja
+$$\left| \int_b^d f(x, y) dx \right| < \varepsilon.$$
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{posledica}
+
+Če je $|f(x, y)| \leq g(x, y)$ za $\forall (x, y) \in [a, \infty) \times [c, d]$ in je integral $\mathlarger{\int_a^b g(x, y) dx}$ \textit{enakomerno konvergenten} na $[c, d]$, je \textit{enakomerno konvergenten} tudi integral $\mathlarger{\int_a^b f(x, y) dx}$.
+
+\end{posledica}
+\vspace{0.5cm}
+
+\begin{izrek}[2. izrek o povprečju]
+
+Naj bo $f$ \textit{integrabilna}, $g$ pa \textit{nenegativna padajoča (odvedljiva)} funkcija na intervalu $[a, b]$. Potem $\exists \xi \in [a, b]$, da je
+$$\int_a^b f(x) g(x) dx = g(a) \int_a^{\xi} f(x) dx.$$
 
 \end{izrek}
 \vspace{0.5cm}
