@@ -15,9 +15,9 @@
 \theoremstyle{definition}
 \newtheorem{izrek}{Izrek}[section]
 
-\newtheorem{lema}{Lema}[section]
+\renewcommand{\qedsymbol}{$\blacksquare$}
 
-\newtheorem*{dokaz}{Dokaz}
+\newtheorem{lema}{Lema}
 \newtheorem*{posledica}{Posledica}
 
 \title{Analiza 3 - definicije, trditve in izreki}
@@ -306,6 +306,57 @@ Na poltraku $x > 0$ je funkcija $\Gamma$ definirana z
 \end{equation}
 
 \end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}[Rekurzivna formula]
+
+Za $\forall x > 0$ velja
+$$\Gamma(x + 1) = x \Gamma(x).$$
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{posledica}
+
+$\Gamma(n + 1) = n!$ za $\forall n \in \mathbb{N}$ \\
+
+\noindent To nam namiguje, naj definiramo
+$$x! := \Gamma(x + 1) ~\text{za}~ \forall n \in \mathbb{N}.$$
+Rekurzivna formula nam omogoča, da razširimo definicijsko območje funkcije $\Gamma$. Če je namreč $x \in (-1, 0)$, je $x + 1 \in  (0, 1)$, zato je vrednost $\Gamma(x + 1)$ že definiramo in lahko postavimo
+$$\Gamma := \frac{\Gamma(x+1)}{x}.$$
+S ponavljanjem rekurzivne formule dobimo
+\begin{equation} \label{eq:2}
+	\Gamma(x) = \frac{\Gamma(x+n)}{x(x+1)\ldots(x+n-1)}.
+\end{equation}
+Za $\forall x \in \mathbb{R}$, ki ni negativno celo število ali $0$, lahko izberemo tak najmanjši $n \in \mathbb{N}$, da je $(x + n) > 0$; tedaj je vrednost $\Gamma(x + n)$ že definirana in lahko $\Gamma(x)$ definiramo s formulo (\ref{eq:2}).
+
+\end{posledica}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Funkcija beta je definirana kot
+\begin{equation} \label{eq:3}
+	B(x, y) = \int_0^1 t^{x-1} (1-t)^{y-1} dt, ~~(x>0, y>0).
+\end{equation}
+Lahko se je prepričati, da je integral v (\ref{eq:3}) konvergenten, če je $x > 0$ in $y > 0$. \\
+
+Z vpeljavo nove integracijske spremenljivke $t = \sin^2{\varphi}$ lahko definicijo funkcije $B$ zapišemo tudi kot
+\begin{equation} \label{eq:4}
+	B(x, y) = 2 \int_0^{\frac{\pi}{2}} \sin^{2x-1}{\varphi} \cos^{2y-1}{\varphi} d\varphi.
+\end{equation}
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Za poljubna pozitivna $x, y$ je 
+\begin{equation} \label{eq:5}
+	B(x, y) = \frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}
+\end{equation}
+
+\end{trditev}
 \vspace{0.5cm}
 
 \end{document}
