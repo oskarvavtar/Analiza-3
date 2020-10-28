@@ -357,6 +357,153 @@ Za poljubna pozitivna $x, y$ je
 \end{equation}
 
 \end{trditev}
+\vspace{0.5cm} 
+
+% *************************************************************************************************
+
+\subsection{Stirlingova formula}
+\vspace{0.5cm}
+
+\begin{izrek}[Stirlingova formula]
+
+$$\lim_{n \rightarrow \infty} \frac{n!}{\sqrt{n} (\frac{n}{e})^n} = \sqrt{2 \pi}$$
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{trditev}[Wallisova formula]
+
+$$\lim_{n \rightarrow \infty} \frac{1}{2n+1} \prod_{j=1}^n \left( \frac{2j}{2j-1} \right)^2 = \frac{\pi}{2}$$
+
+\end{trditev}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\pagebreak
+
+% #################################################################################################
+
+\section{VEČKRATNI INTEGRALI}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Naj bo $f: K \rightarrow \mathbb{R}$ \textit{omejena} funkcija, definirana na kvadru $K = [a, b] \times [c, d] \times [e, g]$ v $\mathbb{R}^3$. Vse tri intervale $[a, b]$, $[c, d]$ in $[e, g]$ razdelimo na podintervale z delilnimi točkami:
+$$a = x_0 < \ldots < x_{i-1} < x_i < \ldots < x_m = b,$$
+$$c = y_0 < \ldots < y_{j-1} < y_j < \ldots < y_n = d,$$
+$$e = z_0 < \ldots < z_{k-1} < z_k < \ldots < z_p = g.$$ 
+S tem razdelimo kvader $K$ na manjše podkvadre 
+$$K_{i,j,k} = [x_{i-1}, x_i] \times [y_{j-1}, y_j] \times [z_{k-1}, z_k];$$
+to delitev imenujemo $D$. Označimo
+$$m_{i,j,k} = \inf_{(x,y,z) \in K_{i,j,k}} f(x, y, z),$$
+$$M_{i,j,k} = \sup_{(x,y,z) \in K_{i,j,k}} f(x, y, z)$$
+ter tvorimo \textit{spodnjo} in \textit{zgornjo} Riemannovo vsoto pri tej delitvi:
+$$\underline{S}_D = \sum_{i=1}^m \sum_{j=1}^n \sum_{k=1}^p m_{i,j,k} \Delta_{i,j,k} V,$$
+$$\overline{S}_D = \sum_{i=1}^m \sum_{j=1}^n \sum_{k=1}^p M_{i,j,k} \Delta_{i,j,k} V,$$
+kjer je 
+$$\Delta_{i,j,k} V = \Delta_i x \Delta_j y \Delta_k z = (x_i - x_{i-1})(y_j - y_{j-1})(z_k - z_{k-1})$$
+prostornina kvadra $K_{i,j,k}$. Končno naj bo
+$$\underline{S} = \sup_D \underline{S}_D ~~\text{in}~~ \overline{S} = \inf_D \overline{S}_D,$$
+kjer teče $D$ po vseh takih delitvah kvadra $K$. Če je $\underline{S} = \overline{S}$ pravimo, da je funkcija $f$ \textit{integrabilna} na kvadru $K$ in skupno vrednost $\underline{S} = \overline{S}$ označimo kot
+$$\iiint_K f(x, y, z) ~dV$$
+ter jo imenujemo \textit{trojni} (Riemannov) integral funkcije $f$. \\
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Naj bo $\Omega$ poljubna omejena podmnožica v $\mathbb{R}^n$ ($n = 1, 2, 3, \ldots$), $f: \Omega \rightarrow \mathbb{R}$ pa omejena funkcija. Izberimo kvader $K$ oblike $K = [a, b] \times [c, d] \times \ldots$, ki naj vsebuje $\Omega$, definirajmo funkcijo $f_K: K \rightarrow \mathbb{R}$ kot
+$$f(x) = 
+\begin{cases}
+	f(x, y, \ldots) &; ~(x, y, \ldots) \in \Omega \\
+	0 &; ~(x, y, \ldots) \in K \setminus \Omega
+\end{cases}$$ 
+ter večkratni integral $\mathlarger{\idotsint_\Omega f(x, y, \ldots) ~dV}$ kot
+$$\idotsint_\Omega f(x, y, \ldots) ~dV = \idotsint_K f_K(x, y, \ldots) ~dV.$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Če ima presek \textit{omejenih} množic $\Omega_1$ in $\Omega_2$ v $\mathbb{R}^2$ (ali v $\mathbb{R}^n$) mero 0, potem je
+$$\idotsint_{\Omega_1 \cup \Omega_2} f(x_1, \ldots, x_n) ~dV = \idotsint_{\Omega_1} f(x_1, \ldots, x_n) ~dV + \idotsint_{\Omega_2} f(x_1, \ldots, x_n) ~dV$$
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Naj bosta $f_1$ in $f_2$ \textit{zvezni} funkciji na $\Omega$ ter $c_1$ in $c_2$ poljubni konstanti. Potem velja
+$$\idotsint_{\Omega} (c_1 f_1 + c_2 f_2) ~dV = c_1 \idotsint_{\Omega} f_1 ~dV + c_2 \idotsint_{\Omega} f_2 ~dV.$$
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Če je $f \leq g$, potem je $\mathlarger{\iint_\Omega f ~dp \leq \iint_\Omega g ~dp}$ in podobno za večkratne integrale. Če je torej funkcija $f$ \textit{omejena} na mnoćici $\Omega$ navzgor s konstanto $M$, navzdol pa s konstanto $m$, potem velja
+$$m p_\Omega \leq \iint_\Omega f dp \leq M p_\Omega,$$
+kjer je $p_\Omega$ ploščina množice $\Omega$.
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+$$\left| \iint_\Omega f ~dp \right| \leq \iint_\Omega |f| ~dp$$
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Naj bo $\Omega$ \textit{kompaktna} množica v $\mathbb{R}^2$, katere rob sestoji iz končno mnogo krivulj oblike $\vec:[a, b] \rightarrow \mathbb{R}^2$ za kake \textit{zvezno odvedljive} funkcije $\vec{r}$ in kake intervale $[a, b]$. Izberimo pravokotnik $P$, ki vsebuje $\Omega$, in naj bo $D$ poljubna delitev tega pravokotnika s premicami, vzporednimi koordinatnima osema. V vsakem od tistih delilnih pravokotnikov $P_k$ delitve $D$, ki sekajo $\Omega$, izberemo točko $\vec{r}_k \in P_k \cap \Omega$, označimo z $\Delta_k p$ ploščino pravokotnika $P_k$ in tvorimo Riemannovo vsoto
+$$S_D(f) = \sum_k f(\vec{r}_k) \Delta_k p,$$
+kjer teče indeks le po tistih delilnih pravokotnikih $P_k$, ki sekajo $\Omega$. Za vsako zvezno funkcijo $f$ na $\Omega$ je integral $\mathlarger{\iint_\Omega f(\vec{r}) ~dp}$ enak limiti vsot $S_D(f)$, ko gredo velikosti vseh delilnih pravokotnikov (torej največja diagonala vseh delilnih pravokotnikov) proti $0$. Natančneje, za $\forall \varepsilon > 0 ~\exists \delta > 0$, da je
+$$\left| S_D(f) - \iint_\Omega f(\vec{r}) ~dp \right| < \varepsilon,$$
+če je maksimalna diagonalna delilnih pravokotnikov $P_k$ manjša od $\delta$.
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{posledica}
+
+Naj bo $\Omega$ podana kot
+\begin{equation} \label{eq:6}
+	\Omega = \{ (x, y) \in \mathbb{R}^2 \mid g_1(x) \leq y \leq g_2(x), ~a \leq x \leq b \},
+\end{equation}
+kjer sta $g_1$ in $g_2$ \textit{zvezni} funkciji na intervalu $[a, b]$ in $g_1(x) \leq g_2(x)$ za $\forall x \in [a, b]$. Naj bosta $M_1$ in $M_2$ taki števili, da pravokotnik $P = [a, b] \times [M_1, M_2]$ vsebuje množico $\Delta$ (torej $M_1 \leq g_1(x) \leq g_2(x) \leq M_2$ za $\forall x \in [a, b]$). Po definiciji imamo potem za vsako \textit{zvezno} funkcijo $f: \Omega \rightarrow \mathbb{R}$:
+$$\iint_\Omega f(x, y) ~dp = \iint_P f_P(x, y) ~dp,$$
+kjer je $f_P$ funkcija na $P$, definirana z 
+$$f_P(x, y) = 
+\begin{cases}
+	f(x, y) &; ~(x, y) \in \Omega \\
+	0 &; ~(x, y) \in P \setminus \Omega.
+\end{cases}$$
+Po zgornjem izreku pa je
+$$\iint_P f_P(x, y) ~dp = \int_a^b \left( \int_{M_1}^{M_2} f(x, y) ~dy \right) dx = \int_a^b \left( \int_{g_1(x)}^{g_2(x)} f(x, y) ~dy \right) dx,$$
+kjer smo upoštevali, da je funkcija $f_P$ enaka $0$ izven $\Omega$ in zato $\mathlarger{\int_{M_1}^{M_2} f_P(x, y) ~dy = \int_{g_1(x)}^{g_2(x)} ~dy}$. Torej velja naslednja trditev:
+
+\end{posledica}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Za vsako \textit{zvezno} funkcijo $f$ na množici $\Omega$, definirani kot (\ref{eq:6}), velja
+$$\iint_\Omega f(x, y) ~dp = \int_a^b \left( \int_{g_1(x)}^{g_2(x)} f(x, y) ~dy \right) dx.$$
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Za območja $\Omega$, podana kot \\$\Omega = \{ (x, y, z) \in \mathbb{R}^3 \mid g_1(x, y) \leq z \leq g_2(x, y), ~(x, y) \in \Lambda \}$, in (skoraj povsod) \textit{zvezne} funkcije $f$ na njih velja
+$$\iiint_\Omega f(x, y, z) ~dV = \iint_\Lambda \left( \int_{g_1(x)}^{g_2(x)} f(x, y, z) ~dz \right) dp.$$
+
+\end{trditev}
 \vspace{0.5cm}
 
 \end{document}
