@@ -65,13 +65,10 @@ $$\int_{a}^{b} \| \dot{\vec{r}}(t) \| dt = \int_{\alpha}^{\beta} \| \frac{d}{d \
 
 % #################################################################################################
 
-\section{PLOSKVE}
+\section{PLOSKVE V $\mathbb{R}^3$}
 \vspace{0.5cm}
 
 % *************************************************************************************************
-
-\subsection{Ploskve v $\mathbb{R}^3$}
-\vspace{0.5cm}
 
 \begin{definicija}[Ploskev]
 
@@ -295,7 +292,7 @@ $$\int_a^b f(x) g(x) dx = g(a) \int_a^{\xi} f(x) dx.$$
 
 % *************************************************************************************************
 
-\subsection{Eulerjeva funkcija $\Gamma$}
+\subsection{Eulerjevi funkciji $\Gamma$ in $B$}
 \vspace{0.5cm}
 
 \begin{definicija}[Funkcija $\Gamma$]
@@ -358,11 +355,6 @@ Za poljubna pozitivna $x, y$ je
 
 \end{trditev}
 \vspace{0.5cm} 
-
-% *************************************************************************************************
-
-\subsection{Stirlingova formula}
-\vspace{0.5cm}
 
 \begin{izrek}[Stirlingova formula]
 
@@ -505,5 +497,75 @@ $$\iiint_\Omega f(x, y, z) ~dV = \iint_\Lambda \left( \int_{g_1(x)}^{g_2(x)} f(x
 
 \end{trditev}
 \vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Cilindrične ali valjne koordinate}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Lega točke $(x, y, z)$ v prostoru $\mathbb{R}$ je določena s koordinato $z$ in polarnima koordinatama $r, \varphi$ njene projekcije $(x, y, 0)$ na ravnino $x,y$. Trojko $\varphi, r, z$ imenujemo \textit{cilindrične} ali \textit{valjne} koordinatne točke. S kartezičnimi koordinatami so povezane prek enakosti
+$$x = r \cos{\varphi}, ~~y = r \sin{\varphi}, ~~z = z.$$
+Pri tem lahko $r$ zavzame vse nenegativne vrednosti, $z$ vse realne vrednosti, $\varphi$ pa na intervalu $[0, 2\pi)$. Za dano točko $T$ pomeni $r$ njeno razdaljo od osi $z$, ki je enaka razdalji projekcije točke $T$ na ravnino $x,y$ od koordinatnega izhodišča.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{posledica}[Koordinatne ploskve]
+~\\
+\begin{itemize}
+	\item Ploskve $z = \text{konstanta}$ so ravnine, vzporedne z ravnino $x,y$
+	\item Ploskve $r = \text{konstanta}$ so neskončni valji, katerih os je os $z$
+	\item Ploskve $\varphi = \text{konstanta}$ pa so polravnine
+\end{itemize}
+
+\end{posledica}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Sferične koordinate}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Sferične} ali \textit{krogelne koordinate} točke $T(x, y, z)$ so:
+\begin{itemize}
+	\item $R = \sqrt{x^2 + y^2 + z^2}$ razdalja od izhodišča
+	\item $\theta$ kot, ki ga vektor $\vec{0T}$ oklepa s pozitivnim poltrakom osi $z$
+	\item $\varphi$ kot, ki ga pravokotna projekcija vektorja $\vec{0T}$ na ravnino $x,y$ oklepa s pozitivnim poltrakom osi $x$
+\end{itemize} 
+Naj bo kot doslej r, razdalja $T$ od osi $z$. Potem je $r = R \sin{\theta}$ in
+$$x = R \sin{\theta} \cos{\varphi}, ~~y = R \sin{\theta} \sin{\varphi}, ~~z = R \cos{\theta}.$$
+Tukaj lahko zavzame kot $\theta$ vrednosti na intervalu $[0, \pi]$ ($0$ je na pozitivnem, $\pi$ pa na negativnem poltraku osi $z$), kot $\varphi$ pa vrednosti na intervalu $[0, 2\pi)$. \\
+
+\noindent Volumni element v sferičnih koordinatah je
+$$dV = R^2 \sin{\theta} ~dR ~d\theta ~d\varphi.$$
+Od tod sledi, da lahko trojni integral po telesu $\Omega$, ki je opisano kot
+$$\Omega = \{ (x, y, z) \in \mathbb{R}^3: ~g_1(\varphi, \theta) \leq R \leq g_2(\varphi, \theta), ~(\varphi, \theta) \in \Lambda \},$$
+kjer sta $g_1 \leq g_2$ \textit{zvezni} funkciji na množici $\Lambda \subset \mathbb{R}^2$, izrazimo kot
+$$\iiint_{\Omega} f(x, y, z) ~dV = \iint_{\Lambda} \left( \int_{g_1(\varphi, \theta)}^{g_2(\varphi, \theta)} f(R \sin{\theta} \cos{\varphi}, ~R \sin{\theta} \sin{\varphi}, ~R \cos{\theta}) R^2 \sin{\theta} ~dR \right) d\theta ~d\varphi.$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{posledica}[Koordinatne ploskve]
+~\\
+\begin{itemize}
+	\item Ploskve $R = \text{konstanta}$ so sfere
+	\item Ploskve $\theta = \text{konstanta}$ so stožci
+	\item Plosvke $\varphi = \text{konstanta}$ so polravnine
+\end{itemize}
+
+\end{posledica}
+\vspace{0.5cm}
+
+
+% *************************************************************************************************
+
+\pagebreak
+
+% #################################################################################################
 
 \end{document}
