@@ -564,6 +564,64 @@ $$\iiint_{\Omega} f(x, y, z) ~dV = \iint_{\Lambda} \left( \int_{g_1(\varphi, \th
 
 % *************************************************************************************************
 
+\subsection{Splošne koordinate}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Naj bo $V$ \textit{odprta} podmožica v ravnini. Vlogo splošnih koordinat na $V$ lahko igra vsak tak par funkcij
+$$u = u(x, y), ~~v = v(x, y)$$
+na $V$, da iz $(x, y) \neq (x_1, y_2)$ sledi  $(u(x, y), v(x, y)) \neq (u(x_1, y_1), v(x_1, y_1))$, kar pomeni, da je točka $(x, y)$ enolično določena s parom $(u(x, y), v(x, y))$. Drugače povedano, vektorska funkcija 
+$$F: V \rightarrow \mathbb{R}^2, ~F(x, y) = (u(x, y), v(x, y))$$
+mora biti \textit{injektivna}. Zavoljo diferencialnega računa  predpostavimo, da sta funkciji $u$ in $v$ \textit{zvezno odvedljivi}. Iz \textit{izreka o inverzni preslikavi} vemo, da potem obrnljivost Jacobijeve matrike $F'(x, y)$ preslikave $F$ zagotavlja \textit{injektivnost} preslikave $F$ v okolici točke $(x, y)$, ne pa na celem definicijskem območju $V$, zato jo je treba posebej privzeti. Tedaj je pri pogoju, da je $F'(x, y)$ \textit{obrnljiva} matrika za $\forall (x, y) \in V$, preslikava $F$ dejansko \textit{bijekcija} na odprto množico $U := F(V)$, inverzna preslikava
+$$G := F^{-1}: U \rightarrow V$$
+pa je tudi \textit{zvezno odvedljiva} in 
+$$G'(\vec{q}) = (F'(G(\vec{q})))^{-1} ~\text{za}~ \forall \vec{q} \in U.$$
+Pri fiksnih $u_0$ in $v_0$ imenujemo krivulje $u = (x, y)$ in $v = (x, y)$ \textit{koordinatne} krivulje.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+Naj bo $G: U \rightarrow V$ taka \textit{zvezno odvedljiva bijekcija}, kjer sta $U$ in $V$ \textit{odprti} podmnožici v $\mathbb{R}$, da je $\det{G'(\vec{r})} \neq 0$ za $\forall \vec{r} \in U$. Označimo $\vec{r} = (u, v)$ in $G(u, v) = (x(u, v), y(u, v))$. Naj bo $\Omega$ \textit{kompaktna} podmnožica v $V$, katere rob naj sestoji iz končno mnogo \textit{zvezno odvedljivih} krivulj (oz. naj ima mero $0$), $f$ pa naj bo \textit{zvezna} funkcija na $V$ (razen morda na množici z mero $0$). Potem je
+$$\iint_{\Omega} f(x, y) ~dx ~dy ~=~ \iint_{G^{-1}(\Omega)} f(x(u, v), y(u, v)) \left| \frac{\partial (x, y)}{\partial (u, v)}(u, v) \right| du ~dv,$$
+kjer je 
+$$\frac{\partial(x, y)}{\partial (u, v)}(u, v) ~=~ \mathlarger{\det{G'(u, v)} ~=~ \det{\begin{bmatrix}
+\frac{\partial x}{\partial u}(u, v) & \frac{\partial x}{\partial v}(u, v) \\
+\frac{\partial y}{\partial u}(u, v) & \frac{\partial y}{\partial v}(u, v)
+\end{bmatrix}}}.$$
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{lema}
+
+Naj bo $L: \mathbb{R}^2 \rightarrow \mathbb{R}^2$ \textit{obrnljiva linearna} preslikava in $\Lambda$ paralelogram. Potem med ploščinama paralelograma $\Lambda$ in $L(\Lambda)$ velja zveza
+\begin{equation} \label{eq:7}
+	p_{L(\Lambda)} = |\det{L}|_{p_{\Lambda}}.
+\end{equation}
+Enaka povezava velja tudi za vsako \textit{kompaktno} podmnožico $\Lambda$ v $\mathbb{R}^2$ oziroma za vsako \textit{ravninsko} podmnožico, za katero je ploščina definirana.
+
+\end{lema}
+\vspace{0.5cm}
+
+\begin{lema}
+
+Naj bo $G: U \rightarrow \mathbb{R}^2$ \textit{zvezno odvedljiva injektivna} preslikava s \textit{povsod obrbljivim} odvodom $G'(u, v)$, definirana na \textit{odprti} množici $U$, $K$ \textit{kompaktna} podmnožica v $U$, $\Lambda = \{ (u, v) \in \mathbb{R}^2; ~|u - a| \leq h, ~|v - b| \leq h \}$ pa kvadrat s središčem $(a, b)$ in stranico dolžine $2h$, vsebovan v $K$. Označimo
+$$L ~=~ \mathlarger{\det{G'(a, b)} ~=~ \det{\begin{bmatrix}
+\frac{\partial x}{\partial u}(a, b) & \frac{\partial x}{\partial v}(a, b) \\
+\frac{\partial y}{\partial u}(a, b) & \frac{\partial y}{\partial v}(a, b)
+\end{bmatrix}}}$$
+in naj bo $A$ preslikava, definirana z $A(u, v) = G(a, b) + L(u-a,v-b)$. Potem za $\forall \varepsilon > 0 ~~\exists \delta > 0$ (neodvisen od izbire kvadrata), da za ploščini likov $G(\Lambda)$ in $A(\Lambda)$, ko je $h < \delta$, velja
+$$|p_{G(\Lambda)} - p_{A(\Lambda)}| < \varepsilon p_{\Lambda}.$$
+Ker se preslikavi $A$ in $L$ razlikujeta le za translacijo, lahko v tej oceni nadomestimo $A$ z $L$.
+
+\end{lema}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
 \pagebreak
 
 % #################################################################################################
