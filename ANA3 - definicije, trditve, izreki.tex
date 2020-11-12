@@ -626,4 +626,84 @@ Ker se preslikavi $A$ in $L$ razlikujeta le za translacijo, lahko v tej oceni na
 
 % #################################################################################################
 
+\section{PLOSKOVNI IN KRIVULJNI INTEGRAL}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Površina ploskve in ploskovni integral skalarne funkcije}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Naj bo $\Lambda$ pravokotnik s središčem $(u, v) \in \Omega$ in stranicama $du$, $dv$, ki naj bosta vzporedni koordinatnima osema in je $L$ Jacobijeva matrika preslikave $\vec{r} = \vec{r}(u, v)$, torej
+$$L = \begin{bmatrix}
+\frac{\partial}{\partial u}\vec{r}(u, v) & \frac{\partial}{\partial v}\vec{r}(u, v)
+\end{bmatrix}.$$
+Ploščina paralelograma $L(\Lambda)$ je tako 
+$$p_{L(\Lambda)} ~=~ \|du L(1,0) \times dv L(0, 1)\| ~=~ du~dv~\|\frac{\partial}{\partial u}\vec{r}(u, v) \times \frac{\partial}{\partial v}\vec{r}(u, v)\|.$$
+Celotno površino ploskve lahko izračunamo tako, da seštejemo ploščine takih paralelogramov in limitiramo njihove velikosti proti $0$, s čimer preide vsota v integral
+$$p ~=~ \iint_{\Omega} \|\frac{\partial}{\partial u}\vec{r}(u, v) \times \frac{\partial}{\partial v}\vec{r}(u, v)||~du~dv.$$
+Z upoštevanjem Lagranjeove identitete $\|\vec{a} \times \vec{b}\| = \sqrt{\|\vec{a}\|^2 \|\vec{b}\|^2 - (\vec{a} \cdot \vec{b})^2}$, lahko nekoliko poenostavimo formulo:
+$$E(u, v) = \|\frac{\partial}{\partial u}\vec{r}\|^2, ~~F(u, v) = \frac{\partial}{\partial u}\vec{r} \cdot \frac{\partial}{\partial v}\vec{r}, ~~G(u, v) = \|\frac{\partial}{\partial v}\vec{r}\|^2$$
+$$p ~=~ \iint_{\Omega} \sqrt{EG - F^2}~du~dv.$$
+Označimo $\vec{q} = (u, v)$. Jacobijeva matrika $\dot{\vec{r}}(\vec{q})$ je 
+$$[\dot{\vec{r}}(\vec{q})]^T[\dot{\vec{r}}(\vec{q})] ~=~ \begin{bmatrix}
+E(u, v) & F(u, v) \\
+F(u, v) & G(u, v)
+\end{bmatrix},$$
+od kjer dobimo determinanto
+$$\det{[\dot{\vec{r}}(\vec{q})]^T[\dot{\vec{r}}(\vec{q})]} ~=~ E(u, v)G(u, v) - F(u, v)^2.$$ 
+\vspace{0.5cm}
+
+\noindent Zamenjava spremenljivk:
+\begin{align*}
+\iint_{\Lambda} \sqrt{E(s, t)G(s, t) - F(s, t)^2}~ds~dt ~&=~ \iint_{\Lambda} \sqrt{E(s, t)G(s, t) - F(s, t)^2}\left|\frac{\partial(u, v)}{\partial(s, v)}\right|~ds~dt \\
+&=~ \iint_{\Omega} \sqrt{E(u, v)G(u, v) - F(u, v)^2}~du~dv.
+\end{align*}
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Definicija površine ploskve je neodvisna od parametrizacije.
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Naj bo $f$ funkcija, definirana na ploskvi $\mathcal{P}$ z enačbo \\$\vec{r} = \vec{r}(u, v)$, $(u, v) \in \Omega \subseteq \mathbb{R}^2$. \textit{Ploskovni integral} te funkcije po ploskvi $\mathcal{P}$ je definirana kot 
+$$\iint_{\mathcal{P}} f~dp ~=~ \iint_{\Omega} f(\vec{r}(u, v))\sqrt{E(u, v)G(u, v) - F(u, v)^2}~du~dv.$$
+Lahko bi pokazali, da je ploskovni integral neodvisen od parametrizacije ploskve.
+
+\end{definicija}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Krivuljni integral}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Naj bo $f$ (\textit{zvezna}) funkcija na krivulji $\gamma$ z enačbo $\vec{r} = \vec{r}(t)$, $a \leq t \leq b$. \textit{Krivuljni integral} funkcije $f$ po krivulji $\gamma$, je definiran kot
+$$\int_{\gamma} f(\vec{r})~ds ~=~ \int_{a}^{b} f(\vec{r}(t))\|\dot{\vec{r}}(t)\|~dt.$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Krivuljni integral} je definiran kot
+$$\int_{\gamma} \vec{F} \cdot d\vec{r} ~=~ \int_{a}^{b} \vec{F}(\vec{r}(t)) \cdot \dot{\vec{r}}(t) ~dt.$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+% #################################################################################################
+
 \end{document}
