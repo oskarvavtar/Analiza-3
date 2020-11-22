@@ -686,6 +686,8 @@ Lahko bi pokazali, da je ploskovni integral neodvisen od parametrizacije ploskve
 \subsection{Krivuljni integral}
 \vspace{0.5cm}
 
+\subsubsection{Krivuljni integral skalarne funkcije}
+
 \begin{definicija}
 
 Naj bo $f$ (\textit{zvezna}) funkcija na krivulji $\gamma$ z enačbo $\vec{r} = \vec{r}(t)$, $a \leq t \leq b$. \textit{Krivuljni integral} funkcije $f$ po krivulji $\gamma$, je definiran kot
@@ -694,6 +696,8 @@ $$\int_{\gamma} f(\vec{r})~ds ~=~ \int_{a}^{b} f(\vec{r}(t))\|\dot{\vec{r}}(t)\|
 \end{definicija}
 \vspace{0.5cm}
 
+\subsubsection{Krivuljni integral vektorske funkcije}
+
 \begin{definicija}
 
 \textit{Krivuljni integral} je definiran kot
@@ -701,6 +705,119 @@ $$\int_{\gamma} \vec{F} \cdot d\vec{r} ~=~ \int_{a}^{b} \vec{F}(\vec{r}(t)) \cdo
 
 \end{definicija}
 \vspace{0.5cm}
+
+\begin{trditev}
+
+Če je $t = t(\tau)$ ($\alpha \leq \tau \leq \beta$) \textit{naraščajoča zvezno odvedljiva} funkcija novega parametra $\tau$ in $t$ preteče interval $[a, b]$, ko $\tau$ preteče interval $[\alpha, \beta]$, potem je
+$$\int_a^b \vec{F}(\vec{r}(t)) \cdot \frac{d}{dt}\vec{r}(t) dt ~=~ \int_{\alpha}^{\beta} \vec{F}(\vec{r}(t(\tau))) \cdot \frac{d}{dt}\vec{r}(t(\tau)) d\tau,$$
+kar pomeni, da je krivuljni integral enak za vse parametrizacije dane krivulje z enako orientacijo. 
+
+\noindent Če je pa $t = t(\tau)$ \textit{padajoča} funkcija in $t$ preteče interval $[a, b]$, ko $\tau$ teče od $\beta$ do $\alpha$, potem je
+$$\int_a^b \vec{F}(\vec{r}(t)) \cdot \frac{d}{dt}\vec{r}(t) dt ~=~ -\int_{\alpha}^{\beta} \vec{F}(\vec{r}(t(\tau))) \cdot \frac{d}{dt}\vec{r}(t(\tau)) d\tau,$$
+kar pomeni, da pri spremembi orientacije krivulje, krivuljni integral spremeni predznak.
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{trditev}
+~
+\begin{enumerate}
+\item[(i)] $$\int_{\gamma \dotplus \lambda} \vec{F} \cdot d\vec{r} ~=~ \int_{\gamma} \vec{F} \cdot d\vec{r} + \int_{\lambda} \vec{F} \cdot d\vec{r},$$
+kjer je $\vec{F}$ \textit{vektorsko polje} na $\gamma \dotplus \lambda$
+\item[(ii)] $$\int_{\gamma^-} \vec{F} \cdot d\vec{r} ~=~ -\int_{\gamma} \vec{F} \cdot d\vec{r}$$
+\end{enumerate}
+Krivuljo $\gamma$, katere končna točka se ujema z začetno, imenujemo \textit{sklenjena}.
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Naj bo $\vec{F}$ \textit{vektorsko polje} na $U$. Velja
+$$\int_{\gamma} \vec{F} \cdot d\vec{r} ~=~ 0$$
+za vsako sklenjeno krivuljo $\gamma$ v $U$ natanko tedaj, ko je 
+$$\int_{\gamma_1} \vec{F} \cdot d\vec{r} ~=~ \int_{\gamma_2} \vec{F} \cdot d\vec{r}$$
+za vsaki krivulji $\gamma_1$ in $\gamma_2$ v $U$, ki imata isto začetno in isto končno točko.
+
+\end{trditev}
+\vspace{0.5cm}
+
+\subsubsection{Krivuljni integral potencialnega polja}
+
+\begin{definicija}
+
+Vektorsko polje $\vec{F}: U \rightarrow \mathbb{R}^3 ~(\mathbb{R}^2)$ je \textit{potencialno}, če obstaja taka funkcija $u: U \rightarrow \mathbb{R}^3 ~(\mathbb{R}^2)$, imenovana \textit{potencial polja} $\vec{F}$, da je
+$$ \vec{F} ~=~ \vec{\nabla} u,$$
+kjer je $\vec{\nabla} u$ gradient funkcije $u$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+\textit{Zvezno odvedljivo} vektorsko polje $\vec{F} = (M, N)$ je potencialno le, če velja
+$$\frac{\partial M}{\partial y} ~=~ \frac{\partial N}{\partial x}.$$
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Krivuljni integral \textit{potencialnega} vektorskega polja $\vec{\nabla} u$ po katerikoli krivulji $\gamma$ v definicijskem območju polja je
+$$\int_{\gamma} \vec{\nabla} u \cdot d\vec{r} ~=~ u(\vec{r}(b)) - u(\vec{r}(a)),$$
+kjer sta $\vec{r}(a)$ in $\vec{r}(b)$ začetna in končna točka krivulje $\gamma$. Torej je krivuljni integral danega potencialnega polja neodvisen od poteka krivulje, odvisen je le od njene začetne in končne točke.
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Vektorsko polje $\vec{F}$ na območju $U$ je potencialno natanko tedaj, ko je za vsaki dve točki $\vec{r}_0$ in $\vec{r}$ iz $U$ krivuljni integral $\mathlarger{\int_{\gamma} \vec{F} \cdot d\vec{r}}$ enak za vse krivulje $\gamma$ v $U$ z začetno točko $\vec{r}_0$ in končno točko $\vec{r}$.
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{posledica}
+
+Vektorsko polje $\vec{F}$ na $U$ je potencialno natanko tedaj, ko je 
+$$\int_{\gamma} \vec{F} \cdot d\vec{r} ~=~ 0$$
+za vsako sklenjeno krivuljo $\gamma$ v $U$.
+
+\end{posledica}
+\vspace{0.5cm}
+
+\subsubsection{Povezava med krivuljnim in dvojnim integralom}
+
+\begin{izrek}
+
+Naj bo $\Omega$ kompaktna ravninska množica, katere rob $\partial \Omega$ sestoji iz končno mnogo sklenjenih zvezno odvedljivih krivulj, parametriziranih na kompaktnih interavlih in usmerjenih tako, da je $\Omega$ na njihovi levi. Za vsako \textit{zvezno odvedljivo} vektorsko polje $\vec{F} = (M, N)$, definirano na kaki okolici množice $\Omega$, velja Greenova formula
+$$\int_{\partial \Omega} (M~dx + N~dy) ~=~ \iint_{\Omega} \left( \frac{\partial N}{\partial x} - \frac{\partial M}{\partial y} \right)~dp.$$
+Ravninsko območje $U$ brez lukenj imenujemo \textit{enostavno povezano}. Natančneje: $U$ je enostavno povezano, če je njegov komplement v razširjeni ravnini (torej v $\mathbb{R}^2 \cup \{\infty\}$ povezana množica, se pravi je iz enega kosa).
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{posledica}
+
+Na \textit{enostavnem povezanem} območju $U$ je pogoj 
+$$\frac{\partial M}{\partial y} ~=~ \frac{\partial N}{\partial x}$$
+potreben in zadosten za potencialnost vektorskega polja $\vec{F} = (M, N)$.
+
+\end{posledica}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\pagebreak
+
+% #################################################################################################
+
+\section{DIFERENCIALNE ENAČBE}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+
 
 % *************************************************************************************************
 
