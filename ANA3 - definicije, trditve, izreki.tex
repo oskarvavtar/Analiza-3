@@ -815,11 +815,169 @@ potreben in zadosten za potencialnost vektorskega polja $\vec{F} = (M, N)$.
 \section{DIFERENCIALNE ENAČBE}
 \vspace{0.5cm}
 
+\begin{definicija}
+
+\textit{Splošna diferencialna enačba} reda $n$ je enačba oblike 
+$$F(x, y, y', y'', \ldots, y^{(n)}) = 0,$$
+kjer je $F$ dana funkcija $n+2$ spremenljivk definirana na kakem območju v $\mathbb{R}^{n+1}$, $y$ neznana funkcija spremenljivke $x$, $y^{(k)}$ ($k = 1, \ldots, n$) pa njeni odvodi. \textit{Red enačbe} je red najvišjega odvoda, ki nastopa v enačbi.
+
+\end{definicija}
+\vspace{0.5cm}
+
 % *************************************************************************************************
 
+\subsection{Enačbe 1. reda}
+\vspace{0.5cm}
 
+\begin{definicija}[Enačba z ločljivima spremenljivkama]
+
+To je enačba oblike
+$$g(y) y' = f(x),$$
+kjer sta $f$ in $g$ \textit{zvezni} funkciji. V tem primeru obe strani lahko integriramo in dobimo
+$$\int g(y) dy = \int f(x) dx ~~~\Rightarrow~~~ G(y) = F(x) + C,$$
+kjer sta $F$ in $G$ \textit{primitivni funkciji} $f$ in $g$ ter je $C$ \textit{integracijska konstanta}. Če se da izraziti $y = y(x)$ smo dobili rešitev, sicer rečemo, da zgornja enačba predstavlja rešitev v \textit{implicitni} obliki.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}[Enačba oblike $y' = f(\frac{y}{x})$]
+
+Naj bo $f$ zvezna funkcija. Z novo neznanko $v = \cfrac{y}{x}$, torej $y = xv$ in $y' = xv'$, kar enačbo preoblikuje v 
+$$xv' = f(v) - v,$$
+kjer sta spremenljivki $x$ in $v$ ločljivi.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}[Linearna enačba 1. reda]
+
+To je vsaka enačba, ki se jo da preoblikovati v
+$$y' = py + q,$$
+kjer sta $p$ in $q$ \textit{zvezni} funkciji na kakem intervalu $I$ (lahko tudi poltrak ali cela realna os). Če je $q \equiv 0$ imenujemo enačbo \textit{homogena}. Tedaj sta spremenljivki ločljivi. Ko $q \not\equiv 0$, najprej enačbo rešimo homogeno enačbo in nato rešitev vstavimo v enačbo (\textit{variacija konstante}). Dobimo
+$$y' = C' e^P + C e^P P,$$
+kjer je $P' = p$. Originalno enačbo tako preoblikujemo v
+$$C' e^P = q.$$
+Od tod izračunamo $\mathlarger{C = \int_a^x e^{-P(t)} q(t) dt + K}$, kjer je $K$ konstanta in sledi 
+$$y(x) ~=~ C e^{P(x)} ~=~ e^{P(x)} \int_a^x e^{-P(x)} q(t) dt + K e^{P(x)}.$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}[Bernoullijeva enačba]
+
+To je enačba oblike
+$$y' = py + qy^n,$$
+kjer sta $p$ in $q$ \textit{zvezni} funkciji in $n \in \mathbb{R} \setminus \{0,1\}$ \textit{realna} konstanta. Za $n > 0$ je ena rešitev te enačbe $y \equiv 0$. Pri deljenju enačbe z $y^n$ vidimo, da jo vpeljava nove neznanke $v = y^{1-n}$ spremeni v \textit{linearno}. Tedaj $y = v^{\frac{1}{1-n}}$ in $y' = \frac{1}{1-n} v^{\frac{1}{1-n}-1} v'$, enačba pa se preoblikuje v
+$$\frac{1}{1-n} v' = pv + q,$$
+ki je linearna. Pri deljenju z $v^{\frac{1}{1-n}}$ izgubimo rešitve $v$, ki so za $n>0$ enake $0$. V vsaki ničli $x_0$ funkcije $v$ je tudi $y(x_0) = 0$ in $y'(x_0) = 0$, če je $n \in (0,1)$, zato lahko v točki $(x_0,0)$ združimo rešitvi $y \equiv 0$ in $y = v^{\frac{1}{1-n}}$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}[Eksaktna enačba]
+
+Diferencialno enačbo $y' = f(x,y)$ lahko zapišemo tudi kot $f(x,y)dx - dy = 0$. Splošnejšo enačbo take oblike
+$$\omega := f(x,y)dx + g(x,y)dy = 0,$$
+znamo rešiti, če je izraz $\omega$ \textit{totalni diferencial} kake funkcije $u$, torej
+$$\omega = du = \frac{\partial u}{\partial x}dx + \frac{\partial u}{\partial y}dy.$$
+Tedaj $\omega = du = 0$ pomeni (na povezanem območju v ravnini), da je funkcija $u$ konstantna, torej $u(x, y) = C$, kar imamo lahko za \textit{implicitno} podano rešitev. \\
+\noindent Pogoj, da je $\omega$ totalni diferencialn oz. da je $f = \cfrac{\partial u}{\partial x}$ in $g = \cfrac{\partial u}{\partial y}$ za kako funkcijo $u$, je enakost
+$$\frac{\partial f}{\partial y} ~=~ \frac{\partial^2 u}{\partial y \partial x} ~=~ \frac{\partial^2 u}{\partial x \partial y} ~=~ \frac{\partial g}{\partial x}.$$ 
+Na splošno $\omega$ ni totalni diferencial, lahko pa morda najdemo tako funkcijo $\mu$ brez ničel, da je $\mu \omega$ totalni diferencial funkcije $u$. Tak $\mu$ imenujemo \textit{integrirajoči množitelj}. Ker je $\omega = 0$ ekvivalentna enačbi $du = \mu \omega = 0$, je $u(x, y) = C$ spet implicitno podana rešitev. \\
+\noindent Pogoj, da je $\mu \omega$ totalni diferencial kake funkcije je
+$$\frac{\partial (\mu f)}{\partial y} ~=~ \frac{\partial (\mu g)}{\partial x} ~~\text{oz.}~~ \frac{1}{\mu} \left( g \frac{\partial \mu}{\partial x} - f \frac{\partial \mu}{\partial y} \right) ~=~ \frac{\partial f}{\partial y} - \frac{\partial g}{\partial x}.$$ 
+Če $\exists \mu = \mu(x)$, torej $\frac{\partial \mu}{\partial y} = 0$, se enakost poenostavi ter dobimo (kjer $g$ ni $0$)
+$$\frac{d(\ln \mu)}{dx} ~=~ \frac{\frac{\partial f}{\partial y} - \frac{\partial g}{\partial x}}{g}.$$
+Če je izraz na desni odvisen le od $x$, potem je 
+$$\mu = e^{\int \frac{\frac{\partial f}{\partial y} - \frac{\partial g}{\partial x}}{g} dx}.$$
+integrirajoči množitelj. Podobno lahko izpeljemo, če $\exists \mu = \mu(y)$
+
+\end{definicija}
+\vspace{0.5cm}
 
 % *************************************************************************************************
+
+\subsection{Homogena linearna diferencialna enačba 2. reda}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Splošna linearna diferencialna} enačba 2. reda je enačba oblike
+$$f(x) y'' + g(x) y' + h(x) y ~=~ d(x),$$
+kjer so $f$, $g$, $h$ in $d$ \textit{zvezne} funkcije na kakem intervalu $I$, $y$ pa neznana, \textit{dvakrat zvezno odvedljiva} funkcija. Če je desna stran $d \equiv 0$, imenujemo enačbo \textit{homogena}. Kadar $f$ nima ničel, dobimo po deljenju z $f$ ekvivalentno enačbo oblike
+$$y'' + p(x) y' + q(x) y = r(x),$$
+kjer so $p$, $q$ in $r$ \textit{zvezne} funkcije. Vse funkcije tukaj imajo lahko vrednosti v $\mathbb{C}$. Zgornje enačbe ne moremo vedno rešiti \textit{eksplicitno} z znanimi funkcijami, rešitve pa vedno obstajajo in so določene enolično pri začetnih pogojih.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+Če so $p$, $q$ in $r$ \textit{zvezne} funkcije na intervalu $I$, potem za $\forall x_0 \in I$ in poljubni konstanti $y_0, \tilde{y}_0 \in \mathbb{C}$ obstaja natanko ena \textit{dvakrat zvezno odvedljiva} funkcija $y: I \rightarrow \mathbb{C}$, ki zadošča enačbi $y'' + p(x) y' + q(x) y = r(x)$ in začetnima pogojema 
+$$y(x_0) = y_0, ~~~y'(x_0) = \tilde{y}_0.$$
+Če so pri tem $p$, $q$, $r$ \textit{realne} funkcije in $y_0, \tilde{y}_0 \in \mathbb{R}$, potem je tudi rešitev $y$ \textit{realna} funkcija.
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{definicija}[Linearna neodvisnost]
+
+Funkciji $y_1$ in $y_2$ sta \textit{linearno neodvisni}, če nobena njuna \textit{netrivialna linearna} kombinacija $c_1 y_1 + c_2 y_2$ ($c_1, c_2 \in \mathbb{C}$ sta konstanti, $(c_1, c_2) \neq (0,0)$) ni identično enaka $0$. To pomeni, da nobena od obeh funkcij ni konstanten večkratnik druge.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Determinanta Wronskega} funkcij $y_1, y_2$ je funkcija, definirana kot
+$$W_{y_1,y_2}(x) ~=~ \begin{vmatrix}
+y_1(x) & y_2(x) \\
+y_1'(x) & y_2'(x)
+\end{vmatrix} ~=~ y_1(x) y_2'(x) - y_1'(x) y_2(x).$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}[Liouvillova formula]
+
+Za determinanto Wronskega $W = W_{y_1,y_2}$ dveh rešitev $y_1, y_2$ enačbe $y'' + p(x) y' + q(x) y = 0$ velja \textit{Liouvillova formula}
+$$W(x) = W(x_0) e^{-\int_{x_0}^x p(t) dt}$$
+za $\forall x \in I$, kjer je $x_0$ poljubna točka iz intervala $I$, nad katerim opazujemo enačbo. Torej je $W$ bodisi enaka $0$ bodisi nima nobene ničle na $I$.
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Rešitvi $y_1, y_2$ enačbe $y'' + p(x) y' + q(x) y = 0$ sta na intervalu $I$ \textit{linearno neodvisni} natanko tedaj, ko njuna determinanta Wronskega $W$ ni identično enaka $0$ na $I$, kar je natanko takrat, ko $W$ nima nobene ničle na $I$.
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+Množica vseh rešitev enačbe $y'' + p(x) y' + q(x) y = 0$, je \textit{dvorazsežen vektorski prostor}. Če sta torej $y_1$ in $y_2$ linearno neodvisni rešitvi, potem lahko vsako rešitev $y$ izrazimo kot njuno \textit{linearno kombinacijo}, 
+$y ~=~ c_1 y_1 + c_2 y_2,$
+kjer sta $c_1, c_2$ primerni konstanti (v splošnem kompleksni, sicer pa realni, če nas zanimajo le realne rešitve in sta $y_1$ in $y_2$ realni funkciji).
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Naj bo $y_p$ \textit{partikularna} rešitev enačbe $y'' + p y' + q y = r$ (torej neka konkretna rešitev), $y$ pa poljubna nadaljna rešitev. Potem je funkcija
+$$y_h := y - y_p$$
+rešitev ustrezne \textit{homogene} enačbe $y'' + p y' + q y = 0$. \\
+\noindent Velja tudi obratno: za vsako rešitev $y_h$ \textit{homogene} enačbe $y'' + p y+ + g y = 0$ je vsota
+$$y = y_p + y_h$$
+rešitev enačbe $y'' + p y' + q y = r$.
+
+\end{trditev}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\pagebreak
 
 % #################################################################################################
 
