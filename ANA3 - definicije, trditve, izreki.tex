@@ -897,7 +897,7 @@ integrirajoči množitelj. Podobno lahko izpeljemo, če $\exists \mu = \mu(y)$
 
 % *************************************************************************************************
 
-\subsection{Homogena linearna diferencialna enačba 2. reda}
+\subsection{Homogene linearne diferencialne enačbe 2. reda}
 \vspace{0.5cm}
 
 \begin{definicija}
@@ -977,7 +977,449 @@ rešitev enačbe $y'' + p y' + q y = r$.
 
 % *************************************************************************************************
 
+\subsection{Enačbe s konstantnimi koeficienti in Eulerjeva enačba}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Enačbo oblike 
+$$x^2 y'' + p x y' + q y ~=~ 0, ~~(x > 0),$$
+kjer ta $p$ in $q$ konstanti, imenujemo (homogena) \textit{Eulerjeva enačba}. To enačbo rešujemo z vplejavo nove neodvisne spremenljivke prek zveze $x = e^t$, kjer dobimo zvezi $y' = e^{-t} \dot{y}$ in $y'' = e^{-2t}(\ddot{y} - \dot{y})$, kjer je $\dot{y} = \cfrac{dy}{dt}$ in dobimo
+$$\ddot{y} + (p-1) \dot{y} + q y ~=~ 0.$$
+
+\end{definicija}
+
+% *************************************************************************************************
+
+\subsection{Sistemi linearnih diferencialnih enačb s konstantnimi koeficienti}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Sistem linearnih diferencialnih enačb prvega reda}
+$$\dot{x}_i ~=~ \sum_{j=1}^n a_{i,j}(t)x_j + f_i(t), ~~i = 1, \ldots, n,$$
+kjer so $a_{i,j}$ in $f_i$ dane zvezne spremenljivke $t$, $x_i$ pa neznanke, lahko zapišemo kot
+$$\frac{d}{dt}\vec{x} ~=~ A(t)\vec{x} + \vec{f}(t),$$
+kjer smo vpeljali matrično funkcijo $A(t) := [a_{i,j}(t)]$ ter vektoski funkciji $\vec{f}(t) = (f_1(t), \ldots, f_n(t))^T$ in $\vec{x}(t) = (x_1(t), \ldots, x_n(t))^T$. Vse te funkcije so definirane na kakem intervali $(a, b)$, ki je lahko tudi poltrak ali pa cela realna os $\mathbb{R}$. \\
+
+\noindent Kadar je $\vec{f} \equiv 0$, imenujemo sistem $\textit{homogen}$. V primerih, ko je matrika $A$ konstantna, lahko homogen sistem $\cfrac{d}{dt}\vec{x} = A\vec{x}$ rešimo elementarno. Tedaj namreč za matrično funkcijo $e^{tA} := \mathlarger{\sum_{n=0}^{\infty} \frac{t^n}{n!} A^n}$ (vrsta konvergira za $\forall t \in \mathbb{R}$) velja enakost
+$$\frac{d}{dt}\left( e^{tA} \right) ~=~ A e^{tA}.$$
+Zato za njen inverz $e^{-tA}$ velja
+$$\frac{d}{dt}\left( e^{-tA} \vec{x} \right) ~=~ \vec{0},$$
+kar pove, da je vektorska funkcija $t \mapsto e^{-tA}\vec{x}$ konstantna, recimo enaka $\vec{c}$, torej 
+$$\vec{x} ~=~ e^{tA}\vec{c}.$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Naj bo $A$ matrika reda $2 \times 2$. Če se da $A$ diagonalizirati in sta $\lambda_1, \lambda_2$ njeni lastni vrednosti, je splošna rešitev sistema $\mathlarger{\frac{d}{dt}\vec{x} = A\vec{x}}$ oblike
+$$\vec{x} ~=~ e^{\lambda_1 t}\vec{a} + e^{\lambda_2 t}\vec{b},$$
+kjer sta $\vec{a}$ in $\vec{b}$ lastna vektorja matrike $A$, ki pripadata lastnima vrednostma $\lambda_1$ in $\lambda_2$ (zaporedoma). Če pa se $A$ ne da diagonalizirati, potem je splošna rešitev že omenjenega sistema oblike
+$$\vec{x} = e^{\lambda t}(\vec{a} + t\vec{b}),$$
+kjer je $\lambda$ lastna vrednost matrike $A$, $\vec{b}$ pripadajoči vektor, $\vec{a}$ pa tak vektor, da je $(A - \lambda I)\vec{a} = \vec{b}$.
+
+\end{trditev}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
 \pagebreak
+
+% #################################################################################################
+
+\section{METRIČNI PROSTORI}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Metrika, krogla, odprt in zaprte množice}
+\vspace{0.5cm}
+
+% -------------------------------------------------------------------------------------------------
+
+\subsubsection{Metrika}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Metrični prostor} je \textit{neprazna} množica $M$, opremljena s preslikavo
+$$d: M \times M \rightarrow [0, \infty),$$
+ki ima naslednja lastnosti za $\forall x, y, z \in M$:
+\begin{enumerate}
+	\item $d(x, z) \leq d(x, y) + d(y, z)$ (trikotniška neenakost)
+	\item $d(y, x) = d(x, y)$
+	\item $d(x, y) = 0 ~\Leftrightarrow~ x = y$
+\end{enumerate}
+Preslikavi $d$ pravimo \textit{razdalja} ali \textit{matrika}, elemente množice $M$ pa imenujemo tudi \textit{točke}. Pogosto bomo rekli, da je metrični prostor kar par $(M, d)$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Naj bo $M$ metrični prostor z metriko $d$. Za $\forall a \in M$ in za $\forall r \in [0, \infty)$ imenujemo množico 
+$B(a, r) ~=~ {x \in M: d(x, a) < r}$
+\textit{odprta krogla} s središčem $a$ in polmerom $r$. Množico 
+$\overline{B}(a, r) ~=~ {x \in M: d(x, a) \leq r}$
+pa imenujemo \textit{zaprta krogla} s središčem $a$ in polmerom $r$. \\
+
+\noindent Očitno je $B(a, r) \subseteq \overline{B}(a, r) \subseteq B(a, r + \varepsilon)$ za $\forall \varepsilon > 0$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+% -------------------------------------------------------------------------------------------------
+
+\subsubsection{Odprte in zaprte množice}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Podmnožica $G$ metričnega prostora $M$ je \textit{odprta}, če za $\forall a \in G$ obstaja tako realno število $r > 0$, da je $B(a, r) \subseteq G$. Podmnožica $F$ je \textit{zaprta} v $M$, če je njen komplement $F^C$ \textit{odprta} množica. Intuitivno: v ravnini (ali pa prostoru) so odprte tiste podmnožice, ki ne vsebujejo svojega roba, zaprte pa tiste, ki svoj rob vsebujejo.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{posledica}
+
+Množici $M$ in $\emptyset$ sta hratki odrti in zaprti množici. V splošnem obstajajo tudi podmnožice, ki niso niti odprte, niti zaprte.
+
+\end{posledica}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+\textit{Odprta} krogla je odprta množica, \textit{zaprta} krogla je zaprta množica v vsakem metričnem prostoru $M$.
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{trditev}
+~
+\begin{enumerate}
+	\item Unija poljubne družine \textit{odprtih} podmnožic metričnega prostora je odprta podmnožica.
+	\item Presek končno mnogo \textit{odprtih} podmnožic metričnega prostora je odprta podmnožica.
+\end{enumerate}
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{posledica}
+~
+\begin{enumerate}
+	\item Presek poljubne družine \textit{zaprtih} podmnožic metričnega prostora je zaprta podmnožic je zaprta podmnožica.
+	\item Unija končno mnogo \textit{zaprtih} podmnožic je zaprta podmnožica.
+\end{enumerate}
+
+\end{posledica}
+\vspace{0.5cm}
+
+\begin{posledica}
+
+Podmnožica v metričnem prostoru je \textit{odprta} natanko tedaj, ko se da izraziti kot unija odprtih krogel.
+
+\end{posledica}
+\vspace{0.5cm}
+
+% -------------------------------------------------------------------------------------------------
+
+\subsubsection{Rob, notranjost in zaprtje}
+\vspace{0.5cm}
+
+\begin{definicija}
+~
+\begin{enumerate}
+	\item Točka $a \in S$ je \textit{notranja točka} množice $S$, če je $B(a, r) \subseteq S$ za kak $r > 0$. Množica $\mathring{S}$ vseh notranjih točk množice $S$ imenujemo \textit{notranjost} množice $S$.
+	\item Točka $a \in M$ je \textit{robna točka} za $S$, če vsaka odprta krogla $B(a, r)$ seka takò množico $S$ kot njen komplement:
+	$$B(a, r) \cap S \neq \emptyset ~~\text{in}~~ B(a, r) \cap S^C \neq \emptyset ~~\text{za}~ \forall r > 0.$$
+	Množico $\partial S$ vseh robnih točk imenujemo \textit{rob} množice S.
+	\item Točka $a \in M$ je \textit{zunanja} za $S$, če je $B(a, r) \subseteq S^C$ za kak $r > 0$.
+	\item \textit{Zaprtje} $\overline{S}$ množice $S$ je 
+	$$\overline{S} ~=~ S \cup \partial S.$$
+\end{enumerate}
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{posledica}
+~
+\begin{itemize}
+	\item Množica je odprta $~\Leftrightarrow~$ vse njene točke so notranje
+	\item Notranjost vsake množice je odprta množica.
+	\item Točka $a \in M$ je v zaprtju podmnožice $S$ $~\Leftrightarrow~$ $B(a, r) \cap S \neq \emptyset$ za $\forall r > 0$.
+	\item $\overline{S} = \mathring{S} \cup \partial S$
+\end{itemize}
+
+\end{posledica}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Zaprtje podmnožice $S$ v metričnem prostoru $M$ je enako preseku vseh zaprtih podmnožic v $M$, ki vsebujejo $S$. Torej je podmnožica $S$ zaprta natanko tedaj, ko je $\overline{S} = S$.
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Podmnožico $S$ v metričnem prostoru $M$ imenujemo \textit{povsod gosta podmnožica}, če je $\overline{S} = M$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Okolica} točke $a$ v metričnem prostoru $M$ je podmnožica $G \subseteq M$, ki vsebuje kako odprto kroglo $B(a, r)$ s pozitivnim polmerom $r$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+% -------------------------------------------------------------------------------------------------
+
+% *************************************************************************************************
+
+\subsection{Polnost}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Zaporedje $(a_n)$ v metričnem prostoru $(M, d)$ je \textit{konvergentno}, če obstaja taka točka $a \in M$, da za $\forall \varepsilon > 0$ obstaja tak $n_0 \in \mathbb{N}$, da je
+$$d(a_n, a) < \varepsilon ~~\text{za}~~ \forall n \geq n_0.$$
+Tedaj imenujemo točko $a$ \textit{limita zaporedja} $(a_n)$ in zapišemo $a = \lim_{n \rightarrow \infty} a_n$. Zaporedje, ki ni konvergentno, imenujemo \textit{divergentno}.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Zaporedje $(a_n)$ v metričnem prostoru $(M, d)$ je \textit{Cauchyjevo}, če za $\forall \varepsilon > 0$ obstaja tak $n_0 \in \mathbb{N}$, da je 
+$$d(a_n, a_m) < \varepsilon ~~\text{za}~~ \forall n, m \geq n_0.$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Metrični prostor $(M, d)$ je \textit{poln}, če je vsako Cauchyjevo zaporedje v njem konvergentno (z limito v $M$).
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+\textit{Neprazna} podmnožica $F$ \textit{polnega} metričnega prostora $(M, d)$ je poln metrični prostor (za razdaljo $d$) natanko tedaj, ko je \textit{zaprta}.
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+Za $\forall m  = 1, 2, \ldots$ je $\mathbb{R}^m$ (z običajno evklidsko normo) poln prostor. Prav tako je poln tudi prostor $\mathbb{C}^m$.
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Diameter} ali \textit{premer} podmnožice $S$ metričnega prostora $(M, d)$ je 
+$$d(S) ~:=~ \sup{\{d(x,y): ~x, y \in S\}}.$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{izrek}[Cantorjev izrek o preseku]
+
+Naj bo $(M, d)$ \textit{poln} metrični prostor, $F_1 \supseteq F_2 \supseteq F_3 \supseteq \ldots$ pa \textit{padajoče} zaporedje \textit{nepraznih zaprtih} podmnožic v $M$, katerih diametri $d(F_n)$ konvergirajo proti $0$. Potem presek 
+$$F ~:=~ \cap_{n=1}^{\infty} F_n$$
+vsebuje natanko eno točko.
+
+\end{izrek}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Kompaktnost}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Točka $s \in M$ je stekališče zaporedja $(a_n)$ v metričnem prostoru $(M, d)$, če je za $\forall r > 0$ v krogli $B(s, r)$ neskončno mnogo členov zaporedja. Pri tem štejemo vsak člen tolikokrat, kolikokrat nastopa v zaporedju.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Metrični prostor $M$ je \textit{kompakten}, če ima vsako zaporedje iz $M$ stekališče v $M$. Podmnožica metričnega prostora $M$ je \textit{kompaktna}, če je kompaktna kot metrični prostor za metriko, ki jo podeduje iz $M$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+\textit{Zaprta} podmnožica \textit{kompaktnega} metričnega prostora je \\kompaktna.
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{lema}
+
+Vsak \textit{kompakten} metrični prostor je poln.
+
+\end{lema}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Podmnožica $S$ metričnega prostora $(M, d)$ je \textit{omejena}, če je vsebovana v kaki krogli, torej če obstaja kako tako realno število $r > 0$, da je $S \subseteq B(a, r)$ za kako točko $a \in M$. 
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{izrek}[Heine-Borel]
+
+Podmnožica v $\mathbb{R}^n$ je \textit{kompaktna} natanko tedaj, ko je \textit{zaprta} in \textit{omejena}.
+
+\end{izrek}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Zvezne preslikave}
+\vspace{0.5cm}
+
+% -------------------------------------------------------------------------------------------------
+
+\subsubsection{Zveznost}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Naj bosta $(M_1, d_1)$ in $(M_2, d_2)$ metrična prostora. Preslikava $f: M_1 \rightarrow M_2$ je \textit{zvezna} v točki $a \in M_1$, če za $\forall \varepsilon > 0$ obstaja tak $\delta > 0$, da za $\forall x  \in M_1$ iz $d_1(x, a) < \delta$ sledi
+$$d_2(f(x), f(a)) < \varepsilon.$$
+Z drugimi besedami, $f$ je zvezna v točki $a$, če za $\forall \varepsilon > 0$ obstaja tak $\delta > 0$, da je
+$$f(B(a, \delta)) ~\subseteq~ B(f(a), \varepsilon).$$
+Preslikava $f$ je \textit{zvezna}, če je zvezna v vsaki točki $a \in M_1$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Preslikava $f: M_1 \rightarrow M_2$ je \textit{zvezna} v točki $a \in M_1$ natanko tedaj, ko za vsako zaporedje $(a_n)_n$ v $M_1$, ki konvergira proti $a$, konvergira zaporedje $(f(a_n))_n$ proti $f(a)$.
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Preslikava $f: M_1 \rightarrow M_2$ je \textit{zvezna} natanko tedaj, ko je $f^{-1}(G)$ \textit{odprta} množica v $M_1$ za vsako \textit{odprto} podmnožico $G \subseteq M_2$.
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{posledica}
+
+Preslikava $f: M_1 \rightarrow M_2$ je \textit{zvezna} natanko tedaj, ko je $f^{-1}(F)$ \textit{zaprta} množica v $M_1$ za vsako \textit{zaprto} množico $F \subseteq M_2$.
+
+\end{posledica}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Če je $f: M_1 \rightarrow M_2$ \textit{zvezna} preslikava, je $f(K)$ \textit{kompaktna} podmnožica v $M_2$ za vsako \textit{kompaktno} podmnožico $K \subseteq M_1$.
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Preslikava $f: M_1 \rightarrow M_2$ je \textit{omejena}, če je $f(M_1)$ \textit{omejena} podmnožica v $M_2$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{posledica}
+
+Naj bo $f: M_1 \rightarrow M_2$ \textit{zvezna} preslikava med metričnima prostoroma. Slika $f(K)$ vsake \textit{kompaktne} podmnožice $K \subseteq M_1$ je \textit{omejena} v $M_2$.
+
+\end{posledica}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Kompozitum \textit{zveznih} preslikav je \textit{zvezna} preslikava.
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Bijektivno zvezno} preslikavo, katere inverz je \textit{zvezen}, imenujemo \textit{homeomorfizem}. Metrična prostora $M_1$ in $M_2$ sta \textit{homeomorfna}, če obstaja kak homeomorfizem $f: M_1 \rightarrow M_2$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+% -------------------------------------------------------------------------------------------------
+
+\subsubsection{Enakomerna zveznost}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Preslikavo $f: M_1 \rightarrow M_2$ med metričnima prostoroma $(M_1, d_1)$ in $(M_2, d_2)$ je \textit{enakomerno zvezna}, če za $\forall \varepsilon > 0$ obstaja tak $\delta > 0$, da za vsaki točki $x, y \in M_1$ iz $d_1(x, y) < \delta$ sledi 
+$$d_2(f(x), f(y)) < \varepsilon.$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Če je $(M_1, d_1)$ \textit{kompakten} metrični prostor, je vsaka \textit{zvezna} preslikava $f: M_1 \rightarrow M_2$ \textit{enakomerno zvezna} za vsak metrični prostor $(M_2, d_2)$. 
+
+\end{trditev}
+\vspace{0.5cm}
+
+% -------------------------------------------------------------------------------------------------
+
+\subsubsection{Bonus meme: Negibne točke kontrakcij}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Preslikava $f: M \rightarrow M$ metričnega prostora $(M, d)$ vase je \textit{skrčitev} ali \textit{kontrakcija}, če obstaja kako število $q \in [0, 1)$, da je
+$$d(f(x), f(y)) ~\leq~ q \cdot d(x, y)$$
+za vsaka $x, y \in M$. Očiteno je vsaka kontrakcija (enakomerno) zvezna.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Točka $x \in M$ je \textit{negibna} ali \textit{fiksna} za preslikavo \\$f: M \rightarrow M$, če $f(x) = x$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{izrek}[Banachov izrek o skrčitev]
+
+Za vsako kontrakcijo $f: M \rightarrow M$ \textit{polnega} metričnega prostora $(M, d)$ obstaja natanko ena negibna točka \\$a \in M$.
+
+\end{izrek}
+\vspace{0.5cm}
+
+% -------------------------------------------------------------------------------------------------
+
+% *************************************************************************************************
+
+\pagebreak
+
+% #################################################################################################
+
+\section{KOMPLEKSNA ANALIZA}
+\vspace{0.5cm}
 
 % #################################################################################################
 
