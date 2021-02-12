@@ -19,9 +19,11 @@
 
 \newtheorem{lema}{Lema}
 \newtheorem*{posledica}{Posledica}
+\newtheorem*{opomba}{Opomba}
 
 \title{Analiza 3 - definicije, trditve in izreki}
-\author{Oskar Vavtar}
+\author{Oskar Vavtar \\
+po predavanjih profesorja Bojana Magajne}
 \date{2020/21}
 
 \begin{document}
@@ -36,7 +38,7 @@
 \begin{trditev}
 
 Če je $\vec{r}$ \textit{odvedljiva} vektorska funkcija (njene komponente $x$, $y$ in $z$ so odvedljive funkcije spremenljivke $t$), potem je
-$$\dot{\vec{r}}(t_0) = (\dot{x}(t_0), \dot{y}(t_0), \dot{z}(t_0))$$
+$$\dot{\vec{r}}(t_0) ~=~ (\dot{x}(t_0), \dot{y}(t_0), \dot{z}(t_0))$$
 \textit{tangentni vektor} na krivuljo $t \mapsto \vec{r}(t)$ v točki $\vec{r}(t_0)$, če velja $\dot{\vec{r}}(t_0) \neq 0$.
 	
 \end{trditev}
@@ -45,7 +47,7 @@ $$\dot{\vec{r}}(t_0) = (\dot{x}(t_0), \dot{y}(t_0), \dot{z}(t_0))$$
 \begin{trditev}
 
 Če je $\vec{r}$ \textit{zvezno odvedljiva} vektorska funkcija na intervalu $[a, b]$ (za	$a < b$), je potem \textit{dolžina} krivulje, ki jo določa, enaka
-$$s = \int_{a}^{b} \| \dot{\vec{r}}(t) \| dt.$$
+$$s ~=~ \int_{a}^{b} \| \dot{\vec{r}}(t) \| dt.$$
 To velja tudi za funkcijo, ki so le \textit{odsekoma zvezne}. Opazimo tudi, da je zgornja dolžina neodvisna od parametrizacije krivulje.	
 
 \end{trditev}
@@ -54,7 +56,7 @@ To velja tudi za funkcijo, ki so le \textit{odsekoma zvezne}. Opazimo tudi, da j
 \begin{trditev}
 
 Naj bo $\vec{r}$ \textit{zvezno odvedljiva} vektorska funkcija, definirana na intervalu $[a, b]$ (za $a < b$) in naj bo $\psi: [a, b] \rightarrow [\alpha, \beta]$ \textit{zvezno odvedljiva bijekcija}, tako da $t = \psi(\tau)$ preteče interval $[a, b]$, ko $\tau$ preteče interval $[\alpha, \beta]$ (za $\alpha < \beta)$. Potem je
-$$\int_{a}^{b} \| \dot{\vec{r}}(t) \| dt = \int_{\alpha}^{\beta} \| \frac{d}{d \tau} \vec{r}(\psi(\tau)) \| d\tau. $$
+$$\int_{a}^{b} \| \dot{\vec{r}}(t) \| dt ~=~ \int_{\alpha}^{\beta} \| \frac{d}{d \tau} \vec{r}(\psi(\tau)) \| d\tau. $$
 
 \end{trditev}
 \vspace{0.5cm}
@@ -74,9 +76,9 @@ $$\int_{a}^{b} \| \dot{\vec{r}}(t) \| dt = \int_{\alpha}^{\beta} \| \frac{d}{d \
 
 Podmnožica $P \subseteq \mathbb{R}^3$ je \textit{ploskev}, če za vsako točko $\vec{r} \in P$ obstaja taka okolica $H \subseteq \mathbb{R}^3$, da je $P \cap H$ graf kake zvezno odvedljive funkcije $\phi: D \rightarrow \mathbb{R}$, definirane na kaki \textit{odprti} podmnožici $D \subseteq \mathbb{R}^2$. \\
 To pomeni, da se na $P \cap H$ ena od koordinat $x, y, z$ da \textit{enolično} izraziti kot funkcija preostalih, torej da je $P \cap H$ ene od oblik:
-$$P \cap H = \{(x, y, \phi(x, y)) \mid (x, y) \in D\},$$
-$$P \cap H = \{(x, \phi(x, z), y) \mid (x, z) \in D\},$$
-$$P \cap H = \{(\phi(y, z), y, z) \mid (y, z) \in D\}.$$
+$$P \cap H ~=~ \{(x, y, \phi(x, y)) \mid (x, y) \in D\},$$
+$$P \cap H ~=~ \{(x, \phi(x, z), y) \mid (x, z) \in D\},$$
+$$P \cap H ~=~ \{(\phi(y, z), y, z) \mid (y, z) \in D\}.$$
 
 \end{definicija}
 \vspace{0.5cm}
@@ -84,11 +86,11 @@ $$P \cap H = \{(\phi(y, z), y, z) \mid (y, z) \in D\}.$$
 \begin{trditev}[Izrek o implicitni funkciji]
 
 Naj bo $g: \mathbb{R}^3 \rightarrow \mathbb{R}$ \textit{zvezno odvedljiva} funkcija in privzemimo, da je množica $P = g^{-1}(0)$ \textit{neprazna}. Če je
-$$\nabla g(\vec{r}) \neq 0$$
+$$\nabla g(\vec{r}) ~\neq~ 0$$
 za $\forall \vec{r} \in P$ je $P$ \textit{ploskev}. \\
 
 Enačba oblike $\vec{r} = \vec{r}(t)$ ($t \in [a, b] \subseteq \mathbb{R}, ~a < b$) predstavlja krivuljo v $\mathbb{R}^3$. Privzeli bomo, da je pri tem $\vec{r}$ \textit{zvezno odvedljiva} funkcija spremenljivke $t$. Taka krivulja leži na ploskvi $P = g^{-1}(0)$ natanko tedaj, ko je $g(\vec{r}(t)) = 0$ za $\forall t \in [a, b]$. Ko to enakost odvajamo po $t$, dobimo
-$$\nabla g(\vec{r}(t)) \cdot \dot{\vec{r}}(t) = 0.$$
+$$\nabla g(\vec{r}(t)) \cdot \dot{\vec{r}}(t) ~=~ 0.$$
 Ta enakost pomeni, da je vektor $\nabla g(\vec{r}(t))$ pravokoten na tangentni vektor $\dot{\vec{r}}(t)$ krivulje v točki $\vec{r}(t)$. \\
 
 Če sedaj izberemo poljubno točko $\vec{r}_0$ na ploskvi $P$ in opazujemo vse krivulje na ploskvi $P$, ki gredo skozi točko $\vec{r}_0$ (vsaka taka krivulja $\vec{r} = \vec{r}(t)$ zadošča pogoju $\vec{r}(t_0) = \vec{r}_0$ za kak $t_0$), vidimo, da je vektor $\nabla g(\vec{r}_0)$ pravokoten na tangentni vektor $\dot{\vec{r}}(t_0)$ vsake take krivulje. \\
@@ -1420,6 +1422,393 @@ Za vsako kontrakcijo $f: M \rightarrow M$ \textit{polnega} metričnega prostora 
 
 \section{KOMPLEKSNA ANALIZA}
 \vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Poti in območja v kompleksni ravnini}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Naj bo $D$ \textit{odprta} podmnožica kompleksne ravnine $\mathbb{C}$. \textit{Pot} v $D$ je \textit{odsekoma zvezno odvedljiva} preslikava $\gamma: [a, b] \rightarrow D$, kjer je $[a, b]$ \textit{zaprt} interval v $\mathbb{R}$. Množico $D$ imenujemo \textit{s potmi povezano}, če za vsaki točki $z, w \in D$ obstaja taka pot $\gamma$ v $D$, da je 
+$$\gamma(a) ~=~ z ~~~\text{in}~~~ \gamma(b) ~=~ w.$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{opomba}
+~
+\begin{enumerate}
+
+	\item Običajno pojem povezanosti s potmi definiramo brez zahteve, da mora biti preslikava $\gamma$ \textit{odsekoma odvedljiva}, zadošča le \textit{zveznost}, vendar se je lahko prepričati, da sta za \textit{odprte} množice $D$ v ravnini definiciji ekvivalentno. \footnote{Vsako zvezno preslikavo $\gamma: [a, b] \rightarrow D$ namreč lahko poljubno dobro aproksimiramo z \textit{odsekoma linearno} preslikavo, se pravi s poligonsko krivuljo. Še več, vsako tako pot je mogoče poljubno natančno aproksimirati z \textit{zvezno odveljivo} potjo, zato bi se v definiciji povezanosti s potmi za \textit{odprte} množice lahko omejili na \textit{zvezno odvedljive} poti.}
+	
+	\item Vsaka s potmi povezana množica $D$ je \textit{povezana} \footnote{Pomeni, da je iz enega kosa.} v naslednjem smislu: edini razcep množice $D$ na unijo $D = D_1 \cup D_2$ dveh \textit{disjunktnih odprtih (relativno v $D$)} podmnožic je, ko je ena od množic $D_i$ \textit{prazna}, druga pa enaka $D$. Za \textit{odprte} množice v ravnini sta pojma \textit{povezanosti} in \textit{povezanosti s potmi} ekvivalentna, torej $D$ je \textit{povzana} natanko takrat, ko je \textit{s potmi povezana}. 
+	
+\end{enumerate}
+
+\end{opomba}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Odprto povezano} množico v kompleksni ravnini $\mathbb{C}$ bomo imenovali \textit{območje}.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Razširjena} kompleksna ravnina je $\hat{\mathbb{C}} := \mathbb{C} \cup \{\infty\}.$ Okolice točke $\infty$ so množice oblike $(\mathbb{C} \setminus K) \cup \{\infty\}$, kjer je $K$ \textit{kompaktna} podmnožica v $\mathbb{C}$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+% ************************************************************************************************* 
+
+\subsection{Odvedljivost v kompleksnem smislu in konformnost}
+\vspace{0.5cm}
+
+% -------------------------------------------------------------------------------------------------
+
+\subsubsection{Kompleksna odvedljivost}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Naj bo $f: D \rightarrow \mathbb{C}$ funkcija, definirana na \textit{odprti} množici $D \subseteq \mathbb{C}$. Pravimo, da je $f$ \textit{odvedljiva v kompleksnem smislu} ali \textit{holomorfna} v točki $z \in D$, če obstaja limita
+$$f'(z) ~:=~ \lim_{w \rightarrow z} \frac{f(w) - f(z)}{w - z}.$$
+To limito imenujemo \textit{odvod funkcije $f$ v točki $z$}. Če je $f$ odvedljiva v vsaki točki $z \in D$, rečemo, da je $f$ \textit{holomorfna} na $D$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Funkcija $f$, podana s potenčno vrsto 
+$$f(z) ~=~ a_0 + a_1 z + a_2 z^2 + \ldots ~=~ \sum_{n=0}^{\infty} a_n z^n, ~~(a_n) \in \mathbb{C},$$
+je \textit{holomorfna} na krogu $|z| < R$, kjer je njen odvod enak
+$$f'(z) ~=~ g(z) ~:=~ \sum_{n=0}^{\infty} n a_n z^{n-1}.$$
+Tukaj je $R$ konvergenčni polmer vrste $\mathlarger{\sum_{n=0}^{\infty} a_n z^n}$. 
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{posledica}
+
+Če vrsta $f(z) = \mathlarger{\sum_{n=0}^{\infty} a_n (z - \alpha)^n}$ konvergira na krogu $|z - \alpha| < R$, potem je funkcija $f$ \textit{neskončnokrat odvedljiva (v kompleksnem smislu)} in
+$$f^{(k)}(z) ~=~ \sum_{n=k}^{\infty} n(n-1) \ldots (n-k+1) a_n (z - \alpha)^{n-k}.$$
+Torej je
+$$a_k ~=~ \frac{f^{(k)}(\alpha)}{k!}.$$
+
+\end{posledica}
+\vspace{0.5cm}
+
+% -------------------------------------------------------------------------------------------------
+
+\subsubsection{Konformne preslikave}
+
+\begin{definicija}
+
+Naj bo $\gamma: [0,1] \rightarrow \mathbb{C}$ kaka \textit{zvezno odvedljiva} pot, ki naj gre skozi točko $z_0 \in \mathbb{C}$, torej $z_0 = \gamma(t_0)$ za kak $t_0 \in [0,1]$. Tangentni vektor v točki $z_0$ na pot $\gamma$ je tedaj (gledan kot kompleksno število) enak $\dot{\gamma}(t_0)$. Nadalje naj bo $f$ funkcija, ki je definirana in \textit{holomorfna} na kakem območju, ki vsebuje množico $[\gamma] := \gamma([0,1])$. Tangentni vektor v točki $f(z_0)$ na pot $f \circ \gamma$ je potem 
+$$\frac{d}{dt}\left( f \circ \gamma \right)(t_0) ~=~ f'(z_0) \dot{\gamma}(t_0).$$
+Pri tem privzamemo, da je $f'(z_0) \neq 0$. Dolžina tega tangentnega vektorja je torej $$|f'(z_0)||\dot{\gamma}(t_0)|.$$
+njegov argument pa $\arg{\dot{\gamma}(t_0)} + \arg{f'(z_0)}$. \\
+
+\noindent Za dve taki, v točki $z_0$ sekajoči poti $\gamma_1$ in $\gamma_2$, je kot med njima \footnote{Kot med njunima tangentnima vektorjema $\dot{\gamma_j}(t_j)$, kjer je $\gamma_j(t_j) = z_0$, $j = 1, 2$} enak 
+$$\psi ~:=~ \arg{\dot{\gamma_2}(t_2)} - \arg{\dot{\gamma_1}(t_1)}.$$
+Kot med potema $f \circ \gamma_1$ in $f \circ \gamma_2$ v presečišču $f(z_0)$ je torej
+\begin{align*}
+\arg{\frac{d}{dt}\left( f \circ \gamma_2 \right)(t_2)} - \arg{\frac{d}{dt}\left( f \circ \gamma_1 \right)(t_1)} ~=~ \\ 
+~=~ (\arg{f'(z_0)} + \arg{\dot{\gamma_2}(t_2)}) - (\arg{f'(z_0)} + \arg{\dot{\gamma_1}(t_1)} ~&=~ \psi
+\end{align*}
+Torej preslikava $f$ ohranja kote med krivuljami. Zato imenujemo \textit{holomorfne} preslikave z neničelnim odvodom tudi $\textit{konformne preslikave}$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+% -------------------------------------------------------------------------------------------------
+
+% *************************************************************************************************
+
+\subsection{Cauchy-Riemannovi enakosti}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+Naj bosta $u(x, y)$ in $v(x, y)$ \textit{realni} funkciji na \textit{odprti} množici $D$ v ravnini. Če je funkcija $f = u + iv$ \textit{holomorfna} na $D$, sta $u$ in $v$ \textit{odvedljivi \footnote{V realnem smislu.}} in veljata Cauchy-Riemannovi enakosti
+$$\frac{\partial u}{\partial x} ~=~ \frac{\partial v}{\partial y} ~~~\text{in}~~~ \frac{\partial v}{\partial x} ~=~ -\frac{\partial u}{\partial y}.$$ V obratno smer pa velja: če so partialni odvodi $\cfrac{\partial u}{\partial x}$, $\cfrac{\partial u}{\partial y}$, $\cfrac{\partial v}{\partial x}$ in $\cfrac{\partial v}{\partial y}$ \textit{zvezni} na $D$ in veljata Cauchy-Riemannovi enakosti, potem je $f$ \textit{holomorfna} na $D$ in
+$$f' ~=~ \frac{\partial u}{\partial x} + i \frac{\partial v}{\partial x}.$$
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Dvakrat zvezno odvedljivo} funkcijo, definirano na odprti množici $D \subseteq \mathbb{R}^n$, imenujemo \textit{harmonična} na $D$, če je 
+$$\Delta u ~:=~ \sum_{j=1}^n \frac{\partial^2 u}{\partial {x_j}^2}(u) ~=~ 0 ~~~(x \in D).$$
+Operator $\Delta$ imenujemo \textit{Laplaceov operator}.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Realni in imaginarni del \textit{holomorfne} funkcije sta \textit{harmonični} funkciji. Na \textit{enostavno povezanem} območju je vsaka harmonična funkcija realni del kake holomorfne funkcije.
+
+\end{trditev}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Integriranje kompleksnih funkcij}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Integral kompleksne funkcije} $f = u + iv$, kjer sta $u$ in $v$ \textit{realni integrabilni} funkciji na intervalu $[a, b]$, definiramo kot
+$$\int_a^b f(t) dt ~=~ \int_a^b u(t) dt + i\int_a^b v(t) dt.$$
+Funkcijo $f = u + iv$ imenujemo \textit{integrabilna}, če sta integrabilni funkciji $u$ in $v$. \\
+
+\noindent Integral kompleksnih funkcij ima podobne lastnosti kot integral realnih funkcij, npr.
+$$\int_a^b \left( \alpha f + \beta g \right) dt ~=~ \alpha \int_a^b f dt + \beta \int_a^b g dt$$
+za poljubni konstanti $\alpha, \beta \in \mathbb{C}$ in \textit{integrabilni} kompleksni funkciji $f$ in $g$. Integral kompleksne funkcija $f$ na intervalu $[a, b]$ bi lahko ekvivalentno definirali tudi kot limito Riemannovih vsot 
+$$\sum_{j=1}^n f(\xi_j)(t_j - t_{j-1}), ~~~\xi_j \in [t_{j-1}, t_j],$$
+ko gre širina $\mathlarger{\max_{1 \leq j \leq n}(t_j - t_{j-1})}$ delitve 
+$$a = t_1 < t_1 < \ldots < t_{j-1} < t_j < \ldots < t_n = b$$
+ intervala $[a, b]$ proti $0$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+$$\left| \int_a^b f dt \right| ~\leq~ \int_a^b |f| dt, ~~~(a \leq b).$$
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Če je $\gamma: [a, b] \rightarrow D$ \textit{zvezno odvedljiva}, $f: D \rightarrow \mathbb{C}$ pa \textit{zvezna} funkcija, kjer je $D \subseteq \mathbb{C}$ poljubna množica, ki vsebuje $\gamma([a, b])$, definiramo \textit{krivuljni integral} kot
+$$\int_{\gamma} f(z) dz ~:=~ \int_a^b f(\gamma(t)) \gamma'(t) dt.$$
+Če je $\gamma: [a, b] \rightarrow D$ poljubna pot \footnote{Torej le \textit{odsekoma zvezno odvedljiva}}, pa najprej $[a, b]$ razdelimo na podintervale $[t_{j-1}, t_j]$, na katerih je $\gamma$ \textit{zvezno odvedljiva}, in definiramo $\mathlarger{\int_{\gamma} f(z) dz}$ kot vsoto integralov $\mathlarger{\int_{t_{j-1}}^{t_j} f(\gamma(t))\gamma'(t) dt}$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Če je $\varphi: [c, d] \rightarrow [a, b]$ \textit{naraščujoča zvezno odvedljiva bijekcija}, je
+$$\int_{\gamma \circ \varphi} f(z) dz ~=~ \int_{\gamma} f(z) dz. \footnote{Krivuljni integral je torej neodvisen od parametrizacije krivulje.}$$
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+$$\left| \int_{\gamma} f(z) dz \right|  ~\leq~ \int_{\gamma} |f(z)| dz.$$
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Poti $\gamma: [a, b] \rightarrow D$ \textit{nasprotna} je pot
+$$\gamma^-: [a, b] \rightarrow D, ~~~ \gamma^- ~=~ \gamma(a + b - t).$$
+Ko teče $t$ od $a$ do $b$, potuje točja $\gamma(t)$ od $\gamma(a)$ do $\gamma(b)$, točka $\gamma^-(t)$ pa v nasprotni smeri od $\gamma(b)$ do $\gamma(a)$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+$$\int_{\gamma^-} f(z) dz ~=~ -\int_{\gamma} f(z) dz.$$
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+$$\int_{\gamma_1 + \gamma_2} f(z) dz ~=~ \int_{\gamma_1} f(z) dz + \int_{\gamma_2} f(z) dz.$$
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Pot $\gamma: [a, b] \rightarrow D$ je \textit{sklenjena}, če je $\gamma(b) = \gamma(a)$. Če imata poti $\gamma_1$ in $\gamma_2$ isto začetno in isto končno točko, potem je $\gamma_1 + {\gamma_2}^-$ sklenjena pot.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{lema}
+
+Naj bo $f: D \rightarrow \mathbb{C}$ \textit{(zvezna)} funkcija. Potem je
+$$\int_{\gamma_1} f(z) dz ~=~ \int_{\gamma_2} f(z) dz$$
+za vsaki dve poti $\gamma_1$ in $\gamma_2$ v $D$, ki imata isto začetno in isto končno točko, natanko tedaj, ko je 
+$$\int_{\gamma} f(z) dz ~=~ 0$$
+za vsako \textit{sklenjeno} pot $\gamma$ v $D$.
+
+\end{lema}
+\vspace{0.5cm}
+
+\begin{lema}
+
+Za vsako \textit{holomorfno} funkcijo $F: D \rightarrow \mathbb{C}$ z zveznim odvodom in vsako pot $\gamma: [a, b] \rightarrow D$ je 
+$$\int_{\gamma} F'(z) dt ~=~ F(\gamma(b)) - F(\gamma(a)).\footnote{Privzamemo, da je $F'$ zvezna funkcija.}$$
+
+\end{lema}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+Naj bo $f: D \rightarrow \mathbb{C}$ taka \textit{zvezna} funkcija na območju $D$, da je 
+$$\int_{\gamma} f(z) dz ~=~ 0$$
+za vsako sklenjeno pot $\gamma$ v $D$. Potem obstaja taka \textit{holomorfna} funkcija $F$ na $D$, da je 
+$$f = F'.$$
+
+\end{izrek}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Ovojno število}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Za sklenjeno pot $\gamma$ v $\mathbb{C}$ in vsako točko $\alpha$, ki ne leži na sliki poti $\gamma$, je \textit{ovojno število} (ali \textit{indeks}) definirano kot
+$$I_{\gamma}(\alpha) ~=~ \frac{1}{2 \pi i} \int_{\gamma} \frac{dz}{z - \alpha}.$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Cauchyjeva-Greenova formula}
+\vspace{0.5cm}
+
+\begin{izrek}[Cauchyjev izrek]
+
+Naj bo $\gamma$ taka \textit{sklenjena} pot v \textit{neprazni odprti} množici $D \subseteq \mathbb{C}$, da je $I_{\gamma}(w) = 0$ za $\forall w \in \mathbb{C} \setminus D$. Potem za vsako \textit{v kompleksne smislu odvedljivo} funkcijo $f: D \rightarrow \mathbb{C}$ velja
+$$\int_{\gamma} f(z) dz ~=~ 0.$$
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{izrek}[Cauchyjeva formula]
+
+Naj bo $\gamma$ taka \textit{sklenjena} pot v \textit{neprazni odprti} množici $D \subseteq \mathbb{C}$, da je $I_{\gamma}(\zeta) = 0$ za $\forall \zeta \in \mathbb{C} \setminus D$. Potem za vsako \textit{holomorfno} funkcijo $f: D \rightarrow \mathbb{C}$ velja
+$$I_{\gamma}(w)f(w) ~=~ \frac{1}{2 \pi i} \int_{\gamma} \frac{f(z)}{z - w} dw$$
+za $\forall w \in D \setminus [\gamma]$.
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{posledica}[Cauchyjeva formula za kolobar]
+
+Naj bo $f$ \textit{holomorfna} funkcija na kaki okolici kolobarja $K := \{ z \in \mathbb{C}: ~r \leq |z - \alpha| \leq R \}$ \footnote{Kjer sta $r < R$ \textit{nenegativni} konstanti.}. Potem za vsak $w$ iz notranjosti kolobarja $K$ \footnote{Torej $r < |w - \alpha| < R$} velja
+$$f(w) ~=~ \frac{1}{2 \pi i} \oint_{|z - \alpha| = R} \frac{f(z)}{z - w} dz - \frac{1}{2 \pi i} \oint_{|z - \alpha| = r} \frac{f(z)}{z - \alpha} dz,$$
+kjer sta oba integrala po \textit{pozitivno orientiranih} krožnicah. \footnote{Kolobar leži potem na desni strani notranje krožnice, od tod predznak $-$ pred drugim integralom.}
+
+\end{posledica}
+\vspace{0.5cm}
+
+\begin{posledica}
+
+Če je torej  $f$ holomorfna na kaki okolici kroga $|z - \alpha| \leq R$, potem je za vsak $w$ v notranjosti tega kroga
+$$f(w) ~=~ \frac{1}{2 \pi i} \oint_{|z - \alpha| = R} \frac{f(z)}{z - w} dz.$$
+
+\end{posledica}
+\vspace{0.5cm}
+
+\begin{posledica}
+
+\textit{Holomorfna} funkcija na območju $D$ je \textit{neskončnokrat odvedljiva}. Za $\forall n \in \mathbb{N}$ in vsak \textit{zaprt} krog $\overline{D}(\alpha, r)$, vsebovan v $D$, velja za $\forall w \in D(\alpha, r)$ enakost
+$$f^{(n)}(w) ~=~ \frac{n!}{2 \pi i} \oint_{|z - \alpha| = r} \frac{f(z)}{(z - w)^{n+1}} dz.$$
+Če je torej $|f|$ \textit{omejena}, se pravi $|f(z)| \leq M$ za kak $M$ in $\forall z \in D$, potem velja \textit{Cauchyjeva ocena za odvod}
+$$|f^{(n)}(\alpha)| ~\leq~ \frac{Mn!}{r^n}.$$ 
+
+\end{posledica}
+\vspace{0.5cm}
+
+\begin{posledica}[Liouvillow izrek]
+
+\textit{Omejena holomorfna} funkcija $f$ na $\mathbb{C}$ je \\konstantna.
+
+\end{posledica}
+\vspace{0.5cm}
+
+\begin{posledica}[Osnovni izrek algebre]
+
+Vsak \textit{nekonstanten kompleksen} polinom 
+$$p(z) ~=~ z^n + a_{n_1}z^{n-1} + \ldots + a_0, ~~~(n \geq 1)$$
+ima vsaj eno kompleksno ničlo.
+
+\end{posledica}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Razvoj v Laurentovo in v Taylorjevo vrsto}
+\vspace{0.5cm}
+
+\begin{izrek}[Laurentov razvoj]
+
+Funkcijo $f$, \textit{holomorfno} na kaki okolici \\kolobarja $K = \{ z \in \mathbb{C}: ~r \leq |z - \alpha| \leq R \}$, lahko za vsak $w$ iz notranjosti kolobarja razvijemo v \textit{Laurentovo vrsto}
+$$f(w) ~=~ \sum_{n=0}^{\infty} c_n (w - \alpha)^n + \sum_{n=-1}^{-\infty} c_n (w - \alpha)^n,$$
+kjer je 
+$$c_n ~=~ \frac{1}{2 \pi i} \int_{|z - \alpha| = R} \frac{f(z)}{(z - \alpha)^{n+1}} dz ~~~\textit{za}~ n \geq 0$$
+in
+$$c_n ~=~ \frac{1}{2 \pi i} \int_{|z - \alpha| = r} \frac{f(z)}{(z - \alpha)^{n+1}} dz ~~~\textit{za}~ n \leq -1.$$
+Prva vrsta v $f(w)$ \footnote{Regularni del Laurentovega razvoja.} konvergira za vse $w$ znotraj kroga $|w - \alpha| < R$, druga \footnote{Glavni del Laurentovega razvoja.} pa ua vse $w$ zunaj kroga $|w - \alpha| \leq r$. Vrsti predstavljata \textit{holomorfni} funkciji na območjih konvergence.
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{posledica}[Taylorjev razvoj]
+
+Funkcijo $f$, ki je \textit{holomorfna} na okolici \textit{zaprtega} kroga $\overline{D}(\alpha, R)$, lahko razvijemo v \textit{Taylorjevo vrsto}
+$$f(w) ~=~ \sum_{n=0}^{\infty} c_n (w - \alpha)^n ~~~(|w - \alpha| < R),$$
+kjer je 
+$$c_n ~=~ \frac{1}{2 \pi i} \int_{|z - \alpha| = R} \frac{f(z)}{(z - \alpha)^{n+1}} dz$$
+in kjer integriramo krožnici po pozitivni smeri.
+
+\end{posledica}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Ničle \textit{holomorfne} funckije $f: D \rightarrow \mathbb{C}$ na območju $D$ nimajo stekališč v $D$, če $f$ ni identično enaka $0$.
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{posledica}
+
+Če se \textit{holomorfni} funkciji $f$ in $g$, definirani na območju $D$, ujemata na kaki podmnožici $S \subseteq D$, ki ima kako stekališče v $D$, potem je $g ~=~ f$.  
+
+\end{posledica}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Naj bo $\alpha$ \textit{izolirana singularna} točka \textit{holomorfne} funkcije $f$. Če je $f$ \textit{omejena} v kaki okolici točke $\alpha$, potem je $\alpha$ \textit{premostljiva singularna} točka. \footnote{Glej opombo v skripti.}
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{izrek}[Casorati-Weierstrass]
+
+Če je $\alpha$ \textit{bistvena singularna} točka funkcije $f$ \footnote{Ta je sicer \textit{holomorfna} na kaki okolici te točke, razen v $\alpha$}, potem za $\forall w \in \mathbb{C}$ ter $\forall \varepsilon > 0$ in $\forall \delta > 0$ obstaka tak $z \in D(\alpha, \delta) \setminus \{ \alpha \}$, da je 
+$$|f(z) - w| ~<~ \varepsilon.$$ 
+
+\end{izrek}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\pagebreak
 
 % #################################################################################################
 
