@@ -1064,9 +1064,9 @@ Preslikavi $d$ pravimo \textit{razdalja} ali \textit{matrika}, elemente množice
 \begin{definicija}
 
 Naj bo $M$ metrični prostor z metriko $d$. Za $\forall a \in M$ in za $\forall r \in [0, \infty)$ imenujemo množico 
-$B(a, r) ~=~ {x \in M: d(x, a) < r}$
+$B(a, r) ~=~ \{x \in M \mid d(x, a) < r\}$
 \textit{odprta krogla} s središčem $a$ in polmerom $r$. Množico 
-$\overline{B}(a, r) ~=~ {x \in M: d(x, a) \leq r}$
+\hbox{$\overline{B}(a, r) ~=~ \{x \in M \mid d(x, a) \leq r\}$}
 pa imenujemo \textit{zaprta krogla} s središčem $a$ in polmerom $r$. \\
 
 \noindent Očitno je $B(a, r) \subseteq \overline{B}(a, r) \subseteq B(a, r + \varepsilon)$ za $\forall \varepsilon > 0$.
@@ -1228,7 +1228,7 @@ Za $\forall m  = 1, 2, \ldots$ je $\mathbb{R}^m$ (z običajno evklidsko normo) p
 \begin{definicija}
 
 \textit{Diameter} ali \textit{premer} podmnožice $S$ metričnega prostora $(M, d)$ je 
-$$d(S) ~:=~ \sup{\{d(x,y): ~x, y \in S\}}.$$
+$$d(S) ~:=~ \sup{\{d(x,y) \mid ~x, y \in S\}}.$$
 
 \end{definicija}
 \vspace{0.5cm}
