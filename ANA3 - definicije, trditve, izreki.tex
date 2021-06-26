@@ -1781,7 +1781,7 @@ in kjer integriramo krožnici po pozitivni smeri.
 
 \begin{trditev}
 
-Ničle \textit{holomorfne} funckije $f: D \rightarrow \mathbb{C}$ na območju $D$ nimajo stekališč v $D$, če $f$ ni identično enaka $0$.
+Ničle \textit{holomorfne} funkcije $f: D \rightarrow \mathbb{C}$ na območju $D$ nimajo stekališč v $D$, če $f$ ni identično enaka $0$.
 
 \end{trditev}
 \vspace{0.5cm}
@@ -1795,15 +1795,112 @@ Ničle \textit{holomorfne} funckije $f: D \rightarrow \mathbb{C}$ na območju $D
 
 \begin{trditev}
 
-Naj bo $\alpha$ \textit{izolirana singularna} točka \textit{holomorfne} funkcije $f$. Če je $f$ \textit{omejena} v kaki okolici točke $\alpha$, potem je $\alpha$ \textit{premostljiva singularna} točka. \footnote{Glej opombo v skripti.}
+Naj bo $\alpha$ \textit{izolirana singularna} točka \textit{holomorfne} funkcije $f$. Če je $f$ \textit{omejena} v kaki okolici točke $\alpha$, potem je $\alpha$ \textit{premostljiva singularna} točka. 
 
 \end{trditev}
+\vspace{0.5cm}
+
+\begin{opomba}
+
+V zogrnji trditvi je pomembno, da je $f$ \textit{holomorfna} povsod na kaki okolici točke $\alpha$, razen morda v točki $\alpha$. Funkcije $z \mapsto \sqrt{z}$, na primer, je sicer \textit{omejena} v bližini točke $0$, vendar se je ne da definirati kot \textit{holomorfne} funkcije v okolici točke $0$, zato $0$ zanjo ni premostljiva singularna točka.
+
+\end{opomba}
 \vspace{0.5cm}
 
 \begin{izrek}[Casorati-Weierstrass]
 
 Če je $\alpha$ \textit{bistvena singularna} točka funkcije $f$ \footnote{Ta je sicer \textit{holomorfna} na kaki okolici te točke, razen v $\alpha$}, potem za $\forall w \in \mathbb{C}$ ter $\forall \varepsilon > 0$ in $\forall \delta > 0$ obstaka tak $z \in D(\alpha, \delta) \setminus \{ \alpha \}$, da je 
 $$|f(z) - w| ~<~ \varepsilon.$$ 
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Točka $\infty$ je \textit{izolirana singularna} točka funkcije $f$, če je $0$ \textit{izolirana singularna} točka funkcije 
+$$z ~\mapsto~ \hat{f}(z) ~:=~ f\left(\frac{1}{z}\right).$$
+Pravimo, da je $\infty$ \textit{premostljiva singularna} točka (pol), če je $0$ taka točka za funkcijo $\hat{f}$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Funkcija $f$ je \textit{meromorfna} na \textit{odprti} množici $D$, če obstaja taka podmnožica $S \subset D$, da $S$ nima nobenega stekališča v $D$, da je vsaka točka iz $S$ pol funkcije $f$ in da je $f$ \textit{holomorfna} na $D \setminus S$. 
+
+\end{definicija}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Logaritem in potence}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Kompleksno število $w \neq 0$ lahko enolično zapišemo v polarni obliki $w = |w|e^{i \varphi}$, $-\pi < \varphi < \pi$, zato \textit{naravni logaritem} definiramo na naslednji način:
+$$\ln(w) ~=~ \ln(|w|) + i\varphi ~=~ \ln(|w|) + i\arg(w)$$
+za $w \in \mathbb{C} \setminus (-\infty, 0]$, $-\pi < \varphi < \pi$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Izberemo poljubno točko $w_0 \in D := \mathbb{C} \setminus (-\infty, 0]$. Za $\forall w \in D$ je
+$$\ln(w) - \ln(w_0) ~=~ \int_{w_0}^w \frac{dz}{z} ~:=~ \int_\gamma \frac{dz}{z},$$
+kjer je $\gamma$ poljubna \textit{zvezno odvedljiva} pot v $D$ z začetno točko $w_0$ in končno točko $w$. Zato je 
+$$\ln'(w) ~=~ \frac{1}{w}.$$
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Za $\forall \alpha \in \mathbb{C}$ in $z \in \mathbb{C} \setminus (-\infty, 0]$ naj bo 
+$$z^\alpha ~=~ e^{\alpha \ln(z)},$$
+na prerezani ravnini.
+
+\end{definicija}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Izrek o residuih}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Koeficient $c_{-1}$ v Laurentovem razvoju
+$$f(z) ~=~ \sum_{-\infty}^\infty c_n (z - \alpha)^n$$
+\textit{holomorfne} funkcije $f$ okrog \textit{izolirane singularne} točke $\alpha$ imenujemo \textit{residuum} funkcije $f$ v točki $\alpha$. Označimo z $\text{Res}(f;\alpha)$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{izrek}[Izrek o residuih]
+
+Naj bo $S$ podmnožica območja $D \subseteq \mathbb{C}$, ki naj nima nobenega stekališča v $D$, $f$ \textit{holomorfna} funkcija na $D \setminus S$ in $\gamma$ taka \textit{sklenjena} pot (ali pa cikel) v $D \setminus S$, da je $I_\gamma(\alpha) = 0$ za $\forall \alpha \in \mathbb{C} \setminus D$. Potem je
+$$\frac{1}{2 \pi i} \int_\gamma f(z)\,dz ~=~ \sum_{\alpha \in S} \text{Res}(f; \alpha) I_\gamma (\alpha).$$ 
+
+\end{izrek}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Odprtost holomorfnih preslikav}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Preslikavo $f: D \rightarrow \mathbb{C}$ imenujemo \textit{odprta}, če je $f(U)$ \textit{odprta} množica za vsako \textit{odprto} podmnožico $U \subseteq D$. 
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{izrek}[Princip maksima]
+
+Če je $f$ \textit{nekonstantna holomorfna} preslikava na \textit{odprti} množici $D$, potem funkcija $|f|$ ne more doseči maksima v nobeni točki iz $D$. Minimum lahko doseže le v ničlah funkcije $f$.
 
 \end{izrek}
 \vspace{0.5cm}
